@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MUFC U15 Europe Tour 2026 — Family Itinerary</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e; --paper: #f5f0e8; --cream: #faf7f2;
+    --munich: #c8102e; --prague: #d4a017; --austria: #1a6b3c;
+    --flight: #2c5282; --tournament: #7b2d8b; --bolzano: #6b4c1e;
+    --italy: #009246; --france: #0055a4; --uk: #cf142b;
+    --extension: #e85d04; --transport: #4a5568; --hotel: #2d6a4f;
+    --border: rgba(26,26,46,0.12); --shadow: 0 4px 24px rgba(26,26,46,0.10);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; }
+
+  header { background: var(--ink); color: var(--paper); padding: 48px 32px 36px; position: relative; overflow: hidden; }
+  header::before { content: ''; position: absolute; top: -60px; right: -60px; width: 320px; height: 320px; border-radius: 50%; background: radial-gradient(circle, rgba(200,16,46,0.25) 0%, transparent 70%); }
+  header::after { content: ''; position: absolute; bottom: -40px; left: 20%; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(212,160,23,0.15) 0%, transparent 70%); }
+  .header-inner { max-width: 880px; margin: 0 auto; position: relative; z-index: 1; }
+  .header-badge { display: inline-flex; align-items: center; gap: 8px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--munich); border: 1px solid var(--munich); padding: 4px 12px; border-radius: 20px; margin-bottom: 16px; }
+  .header-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--munich); }
+  header h1 { font-family: 'Playfair Display', serif; font-size: clamp(26px, 5vw, 50px); line-height: 1.15; margin-bottom: 10px; }
+  header h1 em { color: var(--prague); font-style: italic; }
+  .header-meta { display: flex; flex-wrap: wrap; gap: 18px; font-size: 13px; opacity: 0.7; margin-top: 18px; }
+
+  .traveller-bar { background: rgba(255,255,255,0.05); border-top: 1px solid rgba(255,255,255,0.08); padding: 13px 32px; }
+  .traveller-bar-inner { max-width: 880px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .t-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.4; font-family: 'DM Mono', monospace; margin-right: 4px; color: white; }
+  .t-chip { display: inline-flex; align-items: center; gap: 6px; padding: 5px 13px; border-radius: 20px; font-size: 13px; font-weight: 500; }
+  .t-chip.luke { background: rgba(200,16,46,0.22); color: #ff8a9b; border: 1px solid rgba(200,16,46,0.35); }
+  .t-chip.parent { background: rgba(212,160,23,0.2); color: #f0c040; border: 1px solid rgba(212,160,23,0.3); }
+  .t-chip.jo { background: rgba(44,82,130,0.28); color: #90b4e8; border: 1px solid rgba(44,82,130,0.4); }
+  .t-dot { width: 7px; height: 7px; border-radius: 50%; }
+  .t-chip.luke .t-dot { background: #ff8a9b; }
+  .t-chip.parent .t-dot { background: #f0c040; }
+  .t-chip.jo .t-dot { background: #90b4e8; }
+  .t-note { font-size: 12px; opacity: 0.35; color: white; }
+
+  .flight-banner { background: var(--flight); color: white; padding: 13px 32px; }
+  .flight-banner-inner { max-width: 880px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 18px; align-items: center; }
+  .flight-leg { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+  .fl-num { font-family: 'DM Mono', monospace; font-size: 11px; background: rgba(255,255,255,0.15); padding: 2px 7px; border-radius: 4px; }
+  .flight-divider { width: 1px; height: 24px; background: rgba(255,255,255,0.2); }
+
+  main { max-width: 880px; margin: 0 auto; padding: 36px 24px 80px; }
+
+  .section-heading { display: flex; align-items: center; gap: 12px; margin: 40px 0 16px; }
+  .section-heading h2 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; white-space: nowrap; }
+  .section-heading .line { flex: 1; height: 1px; background: var(--border); }
+  .city-pill { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; font-family: 'DM Mono', monospace; padding: 4px 10px; border-radius: 12px; font-weight: 500; white-space: nowrap; }
+  .city-pill.munich { background: rgba(200,16,46,0.1); color: var(--munich); }
+  .city-pill.prague { background: rgba(212,160,23,0.12); color: #a07800; }
+  .city-pill.austria { background: rgba(26,107,60,0.1); color: var(--austria); }
+  .city-pill.tournament { background: rgba(123,45,139,0.1); color: var(--tournament); }
+  .city-pill.flight-col { background: rgba(44,82,130,0.1); color: var(--flight); }
+  .city-pill.bolzano { background: rgba(107,76,30,0.1); color: var(--bolzano); }
+  .city-pill.italy { background: rgba(0,146,70,0.1); color: #007a3a; }
+  .city-pill.france { background: rgba(0,85,164,0.1); color: #0044aa; }
+  .city-pill.uk { background: rgba(207,20,43,0.1); color: var(--uk); }
+
+  /* DAY CARDS */
+  .day-card { background: var(--cream); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 10px; overflow: hidden; transition: box-shadow 0.2s; }
+  .day-card:hover { box-shadow: var(--shadow); }
+  .day-header { display: flex; align-items: center; cursor: pointer; user-select: none; }
+  .day-stripe { width: 6px; align-self: stretch; flex-shrink: 0; border-radius: 12px 0 0 12px; }
+  .day-date-box { padding: 14px 16px 14px 14px; border-right: 1px solid var(--border); min-width: 94px; flex-shrink: 0; }
+  .day-date-box .weekday { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.5; margin-bottom: 2px; }
+  .day-date-box .date-num { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; line-height: 1; }
+  .day-date-box .month { font-size: 11px; opacity: 0.6; margin-top: 2px; }
+  .day-summary { flex: 1; padding: 14px 16px; }
+  .day-summary .location { font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; opacity: 0.5; font-family: 'DM Mono', monospace; margin-bottom: 4px; }
+  .day-summary .title { font-weight: 600; font-size: 15px; line-height: 1.3; }
+  .day-summary .subtitle { font-size: 13px; opacity: 0.6; margin-top: 3px; }
+  .day-toggle { padding: 14px 18px; font-size: 18px; opacity: 0.35; transition: opacity 0.2s, transform 0.2s; flex-shrink: 0; }
+  .day-card.open .day-toggle { opacity: 0.8; transform: rotate(180deg); }
+  .day-body { display: none; padding: 0 18px 18px 116px; border-top: 1px solid var(--border); }
+  .day-card.open .day-body { display: block; }
+  .day-body ul { list-style: none; margin-top: 14px; }
+  .day-body ul li { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.5; padding: 5px 0; border-bottom: 1px dashed rgba(26,26,46,0.07); }
+  .day-body ul li:last-child { border-bottom: none; }
+  .day-body ul li .icon { flex-shrink: 0; font-size: 16px; width: 22px; text-align: center; }
+  .day-body ul li .text strong { font-weight: 600; display: block; font-size: 14px; }
+  .day-body ul li .text span { font-size: 12px; opacity: 0.65; }
+
+  /* LINKS PANEL — always visible below each day card header */
+  .links-panel { border-top: 1px solid var(--border); padding: 12px 18px 14px 116px; background: var(--cream); display: flex; flex-direction: column; gap: 8px; }
+  .link-row { display: flex; flex-wrap: wrap; gap: 7px; }
+  .link-row-label { font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase; font-family: 'DM Mono', monospace; opacity: 0.5; margin-bottom: 2px; }
+  .lnk { display: inline-flex; align-items: center; gap: 5px; padding: 6px 11px; border-radius: 7px; font-size: 12px; font-weight: 500; text-decoration: none; transition: all 0.15s; white-space: nowrap; }
+  .lnk .li { font-size: 14px; }
+  .lnk.hotel { background: rgba(45,106,79,0.07); border: 1px solid rgba(45,106,79,0.22); color: var(--hotel); }
+  .lnk.hotel:hover { background: rgba(45,106,79,0.14); border-color: rgba(45,106,79,0.4); }
+  .lnk.guide { background: rgba(44,82,130,0.06); border: 1px solid rgba(44,82,130,0.2); color: var(--flight); }
+  .lnk.guide:hover { background: rgba(44,82,130,0.13); border-color: rgba(44,82,130,0.4); }
+  .lnk-note { font-size: 10px; opacity: 0.55; }
+
+  /* TRANSPORT */
+  .transport-card { background: rgba(74,85,104,0.06); border: 1px solid rgba(74,85,104,0.18); border-radius: 10px; padding: 12px 16px; margin: 4px 0 10px; }
+  .transport-card .tc-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-family: 'DM Mono', monospace; opacity: 0.6; }
+  .transport-options { display: flex; flex-wrap: wrap; gap: 8px; }
+  .transport-option { border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; background: var(--cream); cursor: pointer; transition: all 0.15s; min-width: 140px; flex: 1; }
+  .transport-option:hover { border-color: var(--transport); }
+  .transport-option.selected { border-color: var(--transport); background: rgba(74,85,104,0.08); }
+  .transport-option .to-mode { font-size: 18px; margin-bottom: 4px; }
+  .transport-option .to-name { font-weight: 600; font-size: 13px; }
+  .transport-option.selected .to-name { color: var(--transport); }
+  .transport-option .to-time { font-size: 11px; opacity: 0.55; margin-top: 2px; }
+  .transport-option .to-tip { font-size: 11px; opacity: 0.5; margin-top: 3px; font-style: italic; }
+
+  .flight-detail-box { background: rgba(44,82,130,0.07); border: 1px solid rgba(44,82,130,0.2); border-radius: 8px; padding: 12px 14px; margin-top: 14px; }
+  .fdb-row { display: flex; align-items: center; gap: 10px; font-size: 13px; margin-bottom: 6px; }
+  .fdb-row:last-child { margin-bottom: 0; }
+  .fdb-num { font-family: 'DM Mono', monospace; font-size: 11px; background: var(--flight); color: white; padding: 2px 7px; border-radius: 4px; }
+
+  .tournament-card { background: linear-gradient(135deg, #2d0a40 0%, #1a0628 100%); border-radius: 14px; padding: 28px; margin: 8px 0 10px; color: white; position: relative; overflow: hidden; }
+  .tournament-card::before { content: '🏆'; position: absolute; right: 24px; top: 20px; font-size: 64px; opacity: 0.12; }
+  .tournament-card h3 { font-family: 'Playfair Display', serif; font-size: 20px; margin-bottom: 6px; }
+  .tournament-card .tc-sub { font-size: 13px; opacity: 0.6; margin-bottom: 20px; }
+  .tstat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(145px, 1fr)); gap: 12px; }
+  .tstat { background: rgba(255,255,255,0.07); border-radius: 8px; padding: 12px; }
+  .tstat .tnum { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: #e0b0ff; }
+  .tstat .tlabel { font-size: 11px; opacity: 0.6; margin-top: 2px; }
+
+  .s-flight { background: var(--flight); } .s-munich { background: var(--munich); } .s-prague { background: var(--prague); }
+  .s-austria { background: var(--austria); } .s-tournament { background: var(--tournament); } .s-bolzano { background: var(--bolzano); }
+  .s-italy { background: var(--italy); } .s-france { background: var(--france); } .s-uk { background: var(--uk); }
+
+  .departure-banner { border-radius: 14px; overflow: hidden; margin-bottom: 10px; border: 1px solid var(--border); }
+  .dep-half { padding: 20px 22px; }
+  .dep-half:first-child { border-bottom: 1px solid rgba(255,255,255,0.12); }
+  .dep-half.luke-dep { background: linear-gradient(135deg, #3a0a12, #200a28); color: white; }
+  .dep-half.jo-dep { background: linear-gradient(135deg, #0a1a3a, #0a0a22); color: white; }
+  .dep-half h4 { font-family: 'Playfair Display', serif; font-size: 17px; margin-bottom: 4px; }
+  .dep-half .dep-sub { font-size: 12px; opacity: 0.55; margin-bottom: 14px; }
+  .dep-flights { display: flex; flex-wrap: wrap; gap: 8px; }
+  .dep-flight { background: rgba(255,255,255,0.1); border-radius: 8px; padding: 9px 13px; }
+  .dep-flight .df-num { font-family: 'DM Mono', monospace; font-size: 11px; opacity: 0.65; }
+  .dep-flight .df-route { font-weight: 600; font-size: 14px; }
+  .dep-flight .df-time { font-size: 11px; opacity: 0.5; margin-top: 2px; }
+
+  .add-section { margin-top: 28px; border: 2px dashed rgba(207,20,43,0.25); border-radius: 16px; padding: 26px; background: rgba(207,20,43,0.02); }
+  .add-section h3 { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--uk); margin-bottom: 6px; }
+  .add-section p { font-size: 13px; opacity: 0.65; margin-bottom: 20px; }
+  .add-form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .form-group { display: flex; flex-direction: column; gap: 5px; }
+  .form-group label { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; opacity: 0.6; font-family: 'DM Mono', monospace; }
+  .form-group input, .form-group textarea { font-family: 'DM Sans', sans-serif; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--cream); font-size: 14px; color: var(--ink); outline: none; transition: border-color 0.2s; }
+  .form-group input:focus, .form-group textarea:focus { border-color: var(--uk); }
+  .form-group textarea { resize: vertical; min-height: 70px; }
+  .form-group.full { grid-column: 1 / -1; }
+  .btn-add { margin-top: 12px; width: 100%; padding: 12px 20px; border: none; border-radius: 8px; background: var(--uk); color: white; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; transition: opacity 0.2s; }
+  .btn-add:hover { opacity: 0.9; }
+
+  .ext-card { background: var(--cream); border: 1px solid rgba(207,20,43,0.2); border-left: 4px solid var(--uk); border-radius: 12px; padding: 16px 20px; margin-bottom: 10px; animation: slideIn 0.3s ease; }
+  @keyframes slideIn { from { opacity:0; transform:translateY(-8px); } to { opacity:1; transform:translateY(0); } }
+  .ext-card-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 5px; }
+  .ec-dest { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; font-family: 'DM Mono', monospace; margin-bottom: 4px; color: var(--uk); }
+  .ec-date { font-family: 'DM Mono', monospace; font-size: 12px; opacity: 0.5; white-space: nowrap; }
+  .ec-notes { font-size: 14px; opacity: 0.7; line-height: 1.5; margin-top: 6px; }
+  .btn-remove { background: none; border: none; cursor: pointer; font-size: 15px; opacity: 0.3; padding: 2px 6px; }
+  .btn-remove:hover { opacity: 0.7; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
+  .legend-item { display: flex; align-items: center; gap: 7px; font-size: 12px; opacity: 0.7; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+  @media (max-width: 600px) {
+    .day-body, .links-panel { padding-left: 18px; }
+    .day-date-box { min-width: 76px; }
+    .day-date-box .date-num { font-size: 18px; }
+    .add-form { grid-template-columns: 1fr; }
+    .flight-banner-inner, .traveller-bar, .flight-banner, header { padding-left: 20px; padding-right: 20px; }
+    .transport-options { flex-direction: column; }
+    .link-row { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-badge"><span class="dot"></span>Manly United FC · BYL U15</div>
+    <h1>Europe <em>2026</em> — Grand Tour</h1>
+    <p style="opacity:0.6;font-size:15px;margin-top:8px;">Germany · Czech Republic · Austria · Italy · France · United Kingdom</p>
+    <div class="header-meta">
+      <span>✈️ 13 May – 12 June 2026</span>
+      <span>⚽ Cordial Cup Tirol (28th Ed.)</span>
+      <span>🌍 6 countries · 31 days</span>
+    </div>
+  </div>
+</header>
+
+<div class="traveller-bar">
+  <div class="traveller-bar-inner">
+    <span class="t-label">Travelling:</span>
+    <span class="t-chip luke"><span class="t-dot"></span>Luke ⚽</span>
+    <span class="t-chip parent"><span class="t-dot"></span>Matt</span>
+    <span class="t-chip jo"><span class="t-dot"></span>Jo</span>
+    <span class="t-note">Luke &amp; Matt depart LGW 6 Jun · Jo departs LGW 12 Jun</span>
+  </div>
+</div>
+
+<div class="flight-banner">
+  <div class="flight-banner-inner">
+    <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;opacity:0.55;font-family:'DM Mono',monospace;">Outbound</div>
+    <div class="flight-divider"></div>
+    <div class="flight-leg"><span class="fl-num">EK413</span>SYD→DXB<span style="opacity:0.45;font-size:11px;">13 May 21:10</span></div>
+    <div class="flight-leg">→<span class="fl-num">EK49</span>DXB→MUC<span style="opacity:0.45;font-size:11px;">14 May 13:15</span></div>
+    <div class="flight-divider"></div>
+    <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;opacity:0.55;font-family:'DM Mono',monospace;">Returns from LGW</div>
+    <div class="flight-divider"></div>
+    <div class="flight-leg"><span style="font-size:12px;background:rgba(200,16,46,0.3);padding:2px 7px;border-radius:4px;">Luke+Parent</span>6 Jun<span class="fl-num">EK016</span>→<span class="fl-num">EK414</span></div>
+    <div class="flight-leg"><span style="font-size:12px;background:rgba(44,82,130,0.4);padding:2px 7px;border-radius:4px;">Jo</span>12 Jun<span class="fl-num">EK016</span>→<span class="fl-num">EK414</span></div>
+  </div>
+</div>
+
+<main>
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:var(--flight)"></div>Flights</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--munich)"></div>Munich 🇩🇪</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--prague)"></div>Prague 🇨🇿</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--austria)"></div>Austria 🇦🇹</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--tournament)"></div>Cordial Cup 🏆</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--bolzano)"></div>Bolzano 🏔️</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--italy)"></div>Italy 🇮🇹</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--france)"></div>France 🇫🇷</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--uk)"></div>UK 🇬🇧</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--hotel)"></div>Hotels 🏨</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--flight)"></div>Guides 🗺️</div>
+  </div>
+
+  <!-- ══ GETTING THERE ══ -->
+  <div class="section-heading"><h2>Getting There</h2><div class="line"></div><div class="city-pill flight-col">Flights</div></div>
+  <div class="day-card" onclick="toggleCard(this)">
+    <div class="day-header">
+      <div class="day-stripe s-flight"></div>
+      <div class="day-date-box"><div class="weekday">Wed</div><div class="date-num">13</div><div class="month">May</div></div>
+      <div class="day-summary"><div class="location">Sydney</div><div class="title">✈️ Depart Sydney — The Adventure Begins!</div><div class="subtitle">EK413 21:10 → Dubai layover → Munich 14 May 13:15</div></div>
+      <div class="day-toggle">▼</div>
+    </div>
+    <div class="day-body">
+      <div class="flight-detail-box" style="margin-top:14px;">
+        <div class="fdb-row"><span class="fdb-num">EK413</span><strong>Sydney → Dubai</strong><span style="opacity:0.6;font-size:12px;">13 May · Departs 21:10 · Arrives 05:40 (+1)</span></div>
+        <div class="fdb-row"><span class="fdb-num">EK49</span><strong>Dubai → Munich</strong><span style="opacity:0.6;font-size:12px;">14 May · Departs 08:50 · Arrives 13:15</span></div>
+      </div>
+      <ul>
+        <li><span class="icon">📄</span><div class="text"><strong>Have ready</strong><span>Passports + insurance certificates. All travellers must be on the group Sydney → Munich flight.</span></div></li>
+        <li><span class="icon">💶</span><div class="text"><strong>Cash tip</strong><span>Grab Euros at Sydney or Dubai. Czech Republic uses Koruna — get from ATMs in Prague.</span></div></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══ MUNICH ══ -->
+  <div class="section-heading"><h2>Munich, Germany</h2><div class="line"></div><div class="city-pill munich">🇩🇪 3 nights</div></div>
+  <div class="day-card" onclick="toggleCard(this)">
+    <div class="day-header">
+      <div class="day-stripe s-munich"></div>
+      <div class="day-date-box"><div class="weekday">Thu</div><div class="date-num">14</div><div class="month">May</div></div>
+      <div class="day-summary"><div class="location">Munich</div><div class="title">🛬 Arrive Munich + Light Training</div><div class="subtitle">Land 13:15 · Hotel check-in · First session on European soil</div></div>
+      <div class="day-toggle">▼</div>
+    </div>
+    <div class="day-body">
+      <ul>
+        <li><span class="icon">🏨</span><div class="text"><strong>Hotel check-in</strong><span>3–4 star (H2, Holiday Inn or equivalent). Full board throughout the football tour leg.</span></div></li>
+        <li><span class="icon">⚽</span><div class="text"><strong>Light training session</strong><span>Shake off the jet lag — low intensity, high team spirit!</span></div></li>
+      </ul>
+    </div>
+    <div class="links-panel">
+      <div class="link-row-label">🏨 Hotels · Munich 14–17 May</div>
+      <div class="link-row">
+        <a class="lnk hotel" href="https://www.booking.com/searchresults.html?city=-1829149&checkin=2026-05-14&checkout=2026-05-17" target="_blank" rel="noopener"><span class="li">🌐</span>Booking.com</a>
+        <a class="lnk hotel" href="https://www.hotels.com/search.do?destination=Munich%2C+Germany&startDate=05%2F14%2F2026&endDate=05%2F17%2F2026" target="_blank" rel="noopener"><span class="li">🏩</span>Hotels.com</a>
+        <a class="lnk hotel" href="https://www.airbnb.com/s/Munich--Germany/homes?checkin=2026-05-14&checkout=2026-05-17" target="_blank" rel="noopener"><span class="li">🏠</span>Airbnb</a>
+        <a class="lnk hotel" href="https://www.tripadvisor.com/Hotels-g187309-Munich_Upper_Bavaria_Bavaria-Hotels.html" target="_blank" rel="noopener"><span class="li">⭐</span>TripAdvisor</a>
+      </div>
+      <div class="link-row-label" style="margin-top:8px;">🗺️ Munich City Guides</div>
+      <div class="link-row">
+        <a class="lnk guide" href="https://www.muenchen.de/en" target="_blank" rel="noopener"><span class="li">🏙️</span>muenchen.de <span class="lnk-note">Official guide</span></a>
+        <a class="lnk guide" href="https://www.visitmuenchen.de/en" target="_blank" rel="noopener"><span class="li">🗺️</span>Visit Munich</a>
+        <a class="lnk guide" href="https://www.allianz-arena.com/en/tours" target="_blank" rel="noopener"><span class="li">🏟️</span>Allianz Arena Tours</a>
+        <a class="lnk guide" href="https://www.lonelyplanet.com/germany/munich" target="_blank" rel="noopener"><span class="li">📖</span>Lonely Planet</a>
+      </div>
+    </div>
+  </div>
+  <div class="day-card" onclick="toggleCard(this)">
+    <div class="day-header">
+      <div class="day-stripe s-munich"></div>
+      <div class="day-date-box"><div class="weekday">Fri</div><div class="date-num">15</div><div class="month">May</div></div>
+      <div class="day-summary"><div class="location">Munich</div><div class="title">🏙️ Munich Sightseeing & Shopping</div><div class="subtitle">Allianz Arena · Bayern Museum · Marienplatz · English Garden</div></div>
+      <div class="day-toggle">▼</div>
+    </div>
+    <div class="day-body">
+      <ul>
+        <li><span class="icon">🏟️</span><div class="text"><strong>Allianz Arena Tour & FC Bayern Museum</strong><span>Walk the corridors of one of the world's most iconic stadiums. Interactive exhibits and trophies — Luke will love it!</span></div></li>
+        <li><span class="icon">🌳</span><div class="text"><strong>English Garden</strong><span>Bigger than Central Park — perfect for a relaxed family stroll.</span></div></li>
+        <li><span class="icon">🥨</span><div class="text"><strong>Viktualienmarkt</strong><span>Traditional Bavarian food market. Giant pretzels, sausages, local cheeses!</span></div></li>
+      </ul>
+    </div>
+  </div>
+  <div class="day-card" onclick="toggleCard(this)">
+    <div class="day-header">
+      <div class="day-stripe s-munich"></div>
+      <div class="day-date-box"><div class="weekday">Sat</div><div class="date-num">16</div><div class="month">May</div></div>
+      <div class="day-summary"><div class="location">Munich</div><div class="title">⚽ Training Session or Friendly Game</div><div class="subtitle">First competitive action on European soil!</div></div>
+      <div class="day-toggle">▼</div>
+    </div>
+    <div class="day-body">
+      <ul>
+        <li><span class="icon">⚽</span><div class="text"><strong>Training or Friendly Match</strong><span>Either a structured session or a friendly against a local Munich club — TBC closer to the date.</span></div></li>
+        <li><span class="icon">🏛️</span><div class="text"><strong>Optional: Dachau Memorial</strong><span>A powerful historical visit ~30 min from the city. Highly recommended for families.</span></div></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══ PRAGUE ══ -->
+  <div class="section-heading"><h2>Prague, Czech Republic</h2><div class="line"></div><div class="city-pill prague">🇨🇿 2 nights</div></div>
+  <div class="transport-card">
+    <div class="tc-header"><span>🚦</span> Munich → Prague</div>
+    <div class="transport-options">
+      <div class="transport-option selected" onclick="selectTransport(this)"><div class="to-mode">🚂</div><div class="to-name">Fast Train</div><div class="to-time">~4h 30m</div><div class="to-tip">Comfortable, scenic. Book on DB or ČD.</div></div>
+      <div class="transport-option" onclick="selectTransport(this)"><div class="to-mode">🚌</div><div class="to-name">Private Coach</div><div class="to-time">~4–5h</div><div class="to-tip">Included in tour transfers.</div></div>
+      <div class="transport-option" onclick="selectTransport(this)"><div class="to-mode">🚗</div><div class="to-name">Hire Car</div><div class="to-time">~3h 45m</div><div class="to-tip">Flexible — easy cross-border drive.</div></div>
+    </div>
+  </div>
+  <div class="day-card" onclick="toggleCard(this)">
+    <div class="day-header">
+      <div class="day-stripe s-prague"></div>
+      <div class="day-date-box"><div class="weekday">Sun</div><div class="date-num">17</div><div class="month">May</div></div>
+      <div class="day-summary"><div class="location">Munich → Prague</div><div class="title">🚂 Travel Day + Prague Sightseeing</div><div class="subtitle">Prague Castle · Charles Bridge · Old Town Square</div></div>
+      <div class="day-toggle">▼</div>
+    </div>
+    <div class="day-body">
+      <ul>
+        <li><span class="icon">🏰</span><div class="text"><strong>Prague Castle & St. Vitus Cathedral</strong><span>The world's largest ancient castle complex — breathtaking views over the city.</span></div></li>
+        <li><span class="icon">🌉</span><div class="text"><strong>Charles Bridge</strong><span>14th-century bridge lined with baroque statues — perfect for a team photo!</span></div></li>
+        <li><span class="icon">🕰️</span><div class="text"><strong>Old Town Square & Astronomical Clock</strong><span>Watch the clock chime on the hour.</span></div></li>
+        <li><span class="icon">💡</span><div class="text"><strong>Currency tip</strong><span>Czech Koruna (CZK). ~1 AUD ≈ 15–16 CZK.</span></div></li>
+      </ul>
+    </div>
+    <div class="links-panel">
+      <div class="link-row-label">🏨 Hotels · Prague 17–19 May</div>
+      <div class="link-row">
+        <a class="lnk hotel" href="https://www.booking.com/searchresults.html?city=-553173&checkin=2026-05-17&checkout=2026-05-19" target="_blank" rel="noopener"><span class="li">🌐</span>Booking.com</a>
+        <a class="lnk hotel" href="https://www.hotels.com/search.do?destination=Prague%2C+Czech+Republic&startDate=05%2F17%2F2026&endDate=05%2F19%2F2026" target="_blank" rel="noopener"><span class="li">🏩</span>Hotels.com</a>
+        <a class="lnk hotel" href="https://www.airbnb.com/s/Prague--Czech-Republic/homes?checkin=2026-05-17&checkout=2026-05-19" target="_blank" rel="noopener"><span class="li">🏠</span>Airbnb</a>
+        <a class="lnk hotel" href="https://www.tripadvisor.com/Hotels-g274707-Prague_Bohemia-Hotels.html" target="_blank" rel="noopener"><span class="li">⭐</span>TripAdvisor</a>
+      </div>
+      <div class="link-row-label" style="margin-top:8px;">🗺️ Prague City Guides</div>
+      <div class="link-row">
+        <a class="lnk guide" href="https://www.prague.eu/en" target="_blank" rel="noopener"><span class="li">🏙️</span>prague.eu <span class="lnk-note">Official guide</span></a>
+        <a class="lnk guide" href="https://www.visitczechrepublic.com/en-US" target="_blank" rel="noopener"><span class="li">🗺️</span>Visit Czech Republic</a>
+        <a class="lnk guide" href="https://www.lonelyplanet.com/czech-republic/prague" target="_blank" rel="noopener"><span class="li">📖</span>Lonely Planet</a>
+        <a class="lnk guide" href="https://www.tripadvisor.com/Attractions-g274707-Activities-Prague_Bohemia.html" target="_blank" rel="noopener"><span class="li">⭐</span>Top Attractions</a>
+      </div>
+    </div>
+  </div>
+  <div class="day-card" onclick="toggleCard(this)">
+    <div class="day-header">
+      <div class="day-stripe s-prague"></div>
+      <div class="day-date-box"><div class="weekday">Mon</div><div class="date-num">18</div><div class="month">May</div></div>
+      <div class="day-summary"><div class="location">Prague</div><div class="title">⚽ Friendly Game in Prague</div><div class="subtitle">Possible opponents: AC Sparta or SK Slavia Prague youth</div></div>
+      <div class="day-toggle">▼</div>
+    </div>
+    <div class="day-body">
+      <ul>
+        <li><span class="icon">⚽</span><div class="text"><strong>Friendly Match</strong><span>Against a Czech youth academy — possibly Sparta or Slavia Prague.</span></div></li>
+        <li><span class="icon">🍽️</span><div class="text"><strong>Team dinner</strong><span>Traditional Czech restaurant. Try svíčková — the national dish!</span></div></li>
+        <li><span class="icon">🚢</span><div class="text"><strong>Optional: Vltava River Cruise</strong><span>Stunning city views at dusk.</span></div></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══ AUSTRIA ══ -->
+  <div class="section-heading"><h2>Austria — Tyrolean Alps</h2><div class="line"></div><div class="city-pill austria">🇦🇹 5 nights</div></div>
+  <div class="transport-card">
+    <div class="tc-header"><span>🚦</span> Prague → Austria (Kitzbühel Alps)</div>
+    <div class="transport-options">
+      <div class="transport-option selected" onclick="selectTransport(this)"><div class="to-mode">🚌</div><div class="to-name">Private Coach</div><div class="to-time">~5–6h</div><div class="to-tip">Included in tour — most convenient for the group.</div></div>
+      <div class="transport-option" onclick="selectTransport(this)"><div class="to-mode">🚂</div><div class="to-name">Train via Salzburg</div><div class="to-time">~6–7h</div><div class="to-tip">Scenic route through the Alps via Salzburg or Innsbruck.</div></div>
+    </div>
+  </div>
+  <div class="day-card" onclick="toggleCard(this)">
+    <div class="day-header">
+      <div class="day-stripe s-austria"></div>
+      <div class="day-date-box"><div class="weekday">Tue</div><div class="date-num">19</div><div class="month">May</div></div>
+      <div class="day-summary"><div class="location">Prague → Austria</div><div class="title">🏔️ Morning Training + Into the Alps!</div><div class="subtitle">Transfer to the stunning Kitzbühel Alps region</div></div>
+      <div class="day-toggle">▼</div>
+    </div>
+    <div class="day-body">
+      <ul>
+        <li><span class="icon">⚽</span><div class="text"><strong>Morning training session</strong><span>Final tune-up — tactics, set pieces, team shape.</span></div></li>
+        <li><span class="icon">🏔️</span><div class="text"><strong>Transfer to the Tyrolean Alps</strong><span>Wildflower meadows, crisp mountain air, cable cars. Genuinely magical in May!</span></div></li>
+      </ul>
+    </div>
+    <div class="links-panel">
+      <div class="link-row-label">🏨 Hotels · Kitzbühel Alps 19–24 May</div>
+      <div class="link-row">
+        <a class="lnk hotel" href="https://www.booking.com/searchresults.html?city=-1995499&checkin=2026-05-19&checkout=2026-05-24" target="_blank" rel="noopener"><span class="li">🌐</span>Booking.com <span class="lnk-note">St. Johann</span></a>
+        <a class="lnk hotel" href="https://www.hotels.com/search.do?destination=Kitzbuhel%2C+Austria&startDate=05%2F19%2F2026&endDate=05%2F24%2F2026" target="_blank" rel="noopener"><span class="li">🏩</span>Hotels.com</a>
+        <a class="lnk hotel" href="https://www.airbnb.com/s/Kirchberg-in-Tirol--Austria/homes?checkin=2026-05-19&checkout=2026-05-24" target="_blank" rel="noopener"><span class="li">🏠</span>Airbnb <span class="lnk-note">Kirchberg</span></a>
+        <a class="lnk hotel" href="https://www.tripadvisor.com/Hotels-g190441-Kitzbuhel_Kitzbuehel_District_Tyrol-Hotels.html" target="_blank" rel="noopener"><span class="li">⭐</span>TripAdvisor</a>
+      </div>
+      <div class="link-row-label" style="margin-top:8px;">🗺️ Kitzbühel Alps Guides</div>
+      <div class="link-row">
+        <a class="lnk guide" href="https://www.kitzbuehel.com/en" target="_blank" rel="noopener"><span class="li">🏔️</span>kitzbuehel.com</a>
+        <a class="lnk guide" href="https://www.cordialcup.com" target="_blank" rel="noopener"><span class="li">⚽</span>Cordial Cup Official</a>
+        <a class="lnk guide" href="https://www.austria.info/en/destinations/tyrol" target="_blank" rel="noopener"><span class="li">🗺️</span>Austria Tourism</a>
+        <a class="lnk guide" href="https://www.wilderkaiser.info/en" target="_blank" rel="noopener"><span class="li">🌄</span>Wilder Kaiser Region</a>
+      </div>
+    </div>
+  </div>
+  <div class="day-card" onclick="toggleCard(this)">
+    <div class="day-header">
+      <div class="day-stripe s-austria"></div>
+      <div class="day-date-box"><div class="weekday">Wed</div><div class="date-num">20</div><div class="month">May</div></div>
+      <div class="day-summary"><div class="location">Austria</div><div class="title">⚽ Pre-Tournament Friendly in Austria</div><div class="subtitle">Final warm-up before the Cordial Cup!</div></div>
+      <div class="day-toggle">▼</div>
+    </div>
+    <div class="day-body">
+      <ul>
+        <li><span class="icon">⚽</span><div class="text"><strong>Friendly game</strong><span>Final match tune-up vs a local Austrian side.</span></div></li>
+        <li><span class="icon">🏔️</span><div class="text"><strong>Explore Kitzbühel</strong><span>World-famous ski resort town — gorgeous alpine architecture and great cafés.</span></div></li>
+        <li><span class="icon">🍽️</span><div class="text"><strong>Try Tyrolean food</strong><span>Tiroler Gröstl, Wiener Schnitzel, Kaiserschmarrn dessert — all local favourites!</span></div></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══ CORDIAL CUP ══ -->
+  <div class="section-heading"><h2>Cordial Cup Tirol 2026</h2><div class="line"></div><div class="city-pill tournament">🏆 28th Edition</div></div>
+  <div class="tournament-card">
+    <h3>International Cordial Cup Tirol — U15 (C-Youth)</h3>
+    <p class="tc-sub">Kitzbühel Alps, Austria · 22–25 May 2026 · Finals at Hopfgarten</p>
+    <div class="tstat-grid">
+      <div class="tstat"><div class="tnum">40</div><div class="tlabel">U15 Teams</div></div>
+      <div class="tstat"><div class="tnum">7</div><div class="tlabel">Max games (5 min)</div></div>
+      <div class="tstat"><div class="tnum">8</div><div class="tlabel">Groups of 5</div></div>
+      <div class="tstat"><div class="tnum">5,000+</div><div class="tlabel">Players & Visitors</div></div>
+    </div>
+    <p style="font-size:12px;opacity:0.4;margin-top:16px;">Alumni: David Alaba (Real Madrid), Dominik Szoboszlai (Liverpool), Konrad Laimer (FC Bayern), Karim Adeyemi (Borussia Dortmund). Scouts attend every year.</p>
+  </div>
+  <div class="day-card" onclick="toggleCard(this)">
+    <div class="day-header">
+      <div class="day-stripe s-tournament"></div>
+      <div class="day-date-box"><div class="weekday">Thu</div><div class="date-num">21</div><div class="month">May</div></div>
+      <div class="day-summary"><div class="location">Austria · Kirchberg</div><div class="title">🎉 Tournament Prep & Opening Ceremony</div><div class="subtitle">Teams march into the stadium — Champions League-style!</div></div>
+      <div class="day-toggle">▼</div>
+    </div>
+    <div class="day-body">
+      <ul>
+        <li><span class="icon">🎽</span><div class="text"><strong>Preparation day</strong><span>Final training, kit prep, tactics and team meeting.</span></div></li>
+        <li><span class="icon">🎉</span><div class="text"><strong>Opening Ceremony in Kirchberg</strong><span>Teams parade into the stadium with DJ and fanfare. Bring the camera!</span></div></li>
+        <li><span class="icon">🌍</span><div class="text"><strong>Likely opponents</strong><span>FC Bayern, Nürnberg, FSV Mainz, FC Zürich, FK Dukla Praha, RFS Riga, 1.FC Kaiserslautern, Team Florida ODP and many more.</span></div></li>
+      </ul>
+    </div>
+  </div>
+  <div class="day-card" onclick="toggleCard(this)">
+    <div class="day-header">
+      <div class="day-stripe s-tournament"></div>
+      <div class="day-date-box"><div class="weekday">Fri</div><div class="date-num">22</div><div class="month">May</div></div>
+      <div class="day-summary"><div class="location">Cordial Cup · Day 1</div><div class="title">⚽ Group Stage Matches</div><div class="subtitle">30-min games across the Kitzbühel Alps venues</div></div>
+      <div class="day-toggle">▼</div>
+    </div>
+    <div class="day-body">
+      <ul>
+        <li><span class="icon">📋</span><div class="text"><strong>Format</strong><span>8 groups of 5 teams. 30-min games, no half-time. Top 2 advance to R16.</span></div></li>
+        <li><span class="icon">📍</span><div class="text"><strong>Venues</strong><span>St. Johann, Kirchberg, Ellmau, Söll, Reith, Going & Oberndorf. Transfers included.</span></div></li>
+      </ul>
+    </div>
+  </div>
+  <div class="day-card" onclick="toggleCard(this)">
+    <div class="day-header">
+      <div class="day-stripe s-tournament"></div>
+      <div class="day-date-box"><div class="weekday">Sat–Sun</div><div class="date-num">23–24</div><div class="month">May</div></div>
+      <div class="day-summary"><div class="location">Cordial Cup · Days 2 & 3</div><div class="title">🏆 Knockout Rounds & Finals at Hopfgarten</div><div class="subtitle">R16 → Quarters → Semis → Final · Streamed live!</div></div>
+      <div class="day-toggle">▼</div>
+    </div>
+    <div class="day-body">
+      <ul>
+        <li><span class="icon">⚔️</span><div class="text"><strong>KO format</strong><span>2×15 min for R16 & Quarters; 2×20 min for Semis and Final. Every placement is played out.</span></div></li>
+        <li><span class="icon">📺</span><div class="text"><strong>Finals streamed live</strong><span>Via STREAMSTER TV — share the link with family back in Australia!</span></div></li>
+        <li><span class="icon">🎒</span><div class="text"><strong>After the Final</strong><span>Head south — first stop: beautiful Bolzano! 🎉</span></div></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══ GRAND TOUR BANNER ══ -->
+  <div style="margin-top:52px;padding:22px 28px;background:linear-gradient(135deg,#1a0a08,#0a1a0a,#0a0a1a);border-radius:14px;color:white;text-align:center;">
+    <p style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;opacity:0.45;text-transform:uppercase;margin-bottom:8px;">From 24 May 2026</p>
+    <p style="font-family:'Playfair Display',serif;font-size:24px;margin-bottom:6px;">The Grand Tour Begins 🌍</p>
+    <div style="display:flex;justify-content:center;gap:10px;margin-top:14px;flex-wrap:wrap;font-size:12px;opacity:0.5;">
+      <span>🏔️ Bolzano (1n)</span><span>→</span><span>🏛️ Verona (2n)</span><span>→</span><span>🌊 Lake Garda (1n)</span><span>→</span><span>🏙️ Milan (2n)</span><span>→</span><span>🗼 Paris (3d)</span><span>→</span><span>🇬🇧 UK (3–4d)</span><span>→</span><span>✈️ Gatwick</span>
+    </div>
+  </div>
+
+  <!-- ══ BOLZANO ══ -->
+  <div class="section-heading" style="margin-top:32px;"><h2>Bolzano, South Tyrol</h2><div class="line"></div><div class="city-pill bolzano">🏔️ 1 night</div></div>
+  <div class="transport-card">
+    <div class="tc-header"><span>🚦</span> Austria (Kitzbühel) → Bolzano</div>
+    <div class="transport-options">
+      <div class="transport-option" onclick="selectTransport(this)"><div class="to-mode">🚗</div><div class="to-name">Hire Car</div><div class="to-time">~1h 15m</div><div class="to-tip">Scenic Brenner Pass drive — dramatic mountain views all the way.</div></div>
+      <div class="transport-option selected" onclick="selectTransport(this)"><div class="to-mode">🚂</div><div class="to-name">Train via Innsbruck</div><div class="to-time">~1h 30m</div><div class="to-tip">Relax and enjoy the Alps. Innsbruck to Bolzano — great with luggage after the tournament!</div></div>
+    </div>
+  </div>
+  <div class="day-card" onclick="toggleCard(this)">
+    <div class="day-header">
+      <div class="day-stripe s-bolzano"></div>
+      <div class="day-date-box"><div class="weekday">Sun</div><div class="date-num">24</div><div class="month">May</div></div>
+      <div class="day-summary"><div class="location">Kitzbühel → Bolzano</div><div class="title">🏔️ After the Final — Bolzano Overnight</div><div class="subtitle">The perfect decompression stop · Gateway to the Dolomites · Crowd level VERY LOW ✅</div></div>
+      <div class="day-toggle">▼</div>
+    </div>
+    <div class="day-body">
+      <ul>
+        <li><span class="icon">🚶</span><div class="text"><strong>Piazza Walther & Via dei Portici</strong><span>The gorgeous arcade-lined medieval street at the heart of the old town. Perfect for a celebration dinner after the tournament!</span></div></li>
+        <li><span class="icon">🧊</span><div class="text"><strong>South Tyrol Museum — next morning</strong><span>Home to Ötzi the Iceman, a 5,300-year-old mummy. One of Europe's most fascinating museums — brilliant for Luke. Book ahead!</span></div></li>
+        <li><span class="icon">🚡</span><div class="text"><strong>Renon Cable Car — if time allows</strong><span>Incredible Dolomite views from the plateau above the city. A wonderful morning activity before heading to Verona.</span></div></li>
+        <li><span class="icon">🍽️</span><div class="text"><strong>South Tyrolean food</strong><span>Speck (cured ham), canederli (dumplings), apple strudel and local Gewürztraminer wine. One of Europe's great underrated food regions!</span></div></li>
+      </ul>
+    </div>
+    <div class="links-panel">
+      <div class="link-row-label">🏨 Hotels · Bolzano 24–25 May</div>
+      <div class="link-row">
+        <a class="lnk hotel" href="https://www.booking.com/searchresults.html?city=-119100&checkin=2026-05-24&checkout=2026-05-25" target="_blank" rel="noopener"><span class="li">🌐</span>Booking.com</a>
+        <a class="lnk hotel" href="https://www.hotels.com/search.do?destination=Bolzano%2C+Italy&startDate=05%2F24%2F2026&endDate=05%2F25%2F2026" target="_blank" rel="noopener"><span class="li">🏩</span>Hotels.com</a>
+        <a class="lnk hotel" href="https://www.airbnb.com/s/Bolzano--Italy/homes?checkin=2026-05-24&checkout=2026-05-25" target="_blank" rel="noopener"><span class="li">🏠</span>Airbnb</a>
+        <a class="lnk hotel" href="https://www.tripadvisor.com/Hotels-g187857-Bolzano_Province_of_South_Tyrol_Trentino_Alto_Adige-Hotels.html" target="_blank" rel="noopener"><span class="li">⭐</span>TripAdvisor</a>
+      </div>
+      <div class="link-row-label" style="margin-top:8px;">🗺️ Bolzano City Guides</div>
+      <div class="link-row">
+        <a class="lnk guide" href="https://www.bolzano-bozen.it/en" target="_blank" rel="noopener"><span class="li">🏙️</span>bolzano-bozen.it <span class="lnk-note">Official guide</span></a>
+        <a class="lnk guide" href="https://www.suedtirol.info/en" target="_blank" rel="noopener"><span class="li">🗺️</span>South Tyrol Tourism</a>
+        <a class="lnk guide" href="https://www.iceman.it/en" target="_blank" rel="noopener"><span class="li">🧊</span>Otzi Museum Tickets</a>
+        <a class="lnk guide" href="https://www.lonelyplanet.com/italy/trentino-alto-adige/bolzano" target="_blank" rel="noopener"><span class="li">📖</span>Lonely Planet</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ VERONA ══ -->
+  <div class="section-heading"><h2>Verona, Italy</h2><div class="line"></div><div class="city-pill italy">🏛️ 2 nights</div></div>
+  <div class="transport-card">
+    <div class="tc-header"><span>🚦</span> Bolzano → Verona</div>
+    <div class="transport-options">
+      <div class="transport-option" onclick="selectTransport(this)"><div class="to-mode">🚗</div><div class="to-name">Hire Car</div><div class="to-time">~1h 30m</div><div class="to-tip">Easy A22 motorway south through the Adige valley.</div></div>
+      <div class="transport-option selected" onclick="selectTransport(this)"><div class="to-mode">🚂</div><div class="to-name">Train ⭐ Recommended</div><div class="to-time">~1h 15m</div><div class="to-tip">Direct Bolzano → Verona Porta Nuova. Stunning Adige valley gorge — vineyards, orchards and rocky cliffs. No parking hassle, great with luggage!</div></div>
+    </div>
+  </div>
+  <div class="day-card" onclick="toggleCard(this)">
+    <div class="day-header">
+      <div class="day-stripe s-italy"></div>
+      <div class="day-date-box"><div class="weekday">Mon–Tue</div><div class="date-num">25–26</div><div class="month">May</div></div>
+      <div class="day-summary"><div class="location">Verona · 2 nights</div><div class="title">🏛️ Verona — Roman Arena, Romeo & Juliet & the Old Town</div><div class="subtitle">Crowd level LOW ✅ · All the history of Italy, none of the crush</div></div>
+      <div class="day-toggle">▼</div>
+    </div>
+    <div class="day-body">
+      <ul>
+        <li><span class="icon">🏟️</span><div class="text"><strong>Arena di Verona</strong><span>One of the best-preserved Roman amphitheatres in the world — 1st century AD, seats 22,000. Book tickets online in advance!</span></div></li>
+        <li><span class="icon">💘</span><div class="text"><strong>Juliet's House & Balcony</strong><span>Visit early morning to beat queues. Courtyard is free — pay to go up on the actual balcony.</span></div></li>
+        <li><span class="icon">🛍️</span><div class="text"><strong>Piazza Bra & Piazza delle Erbe</strong><span>Beautiful central squares lined with restaurants and a daily fresh produce market.</span></div></li>
+        <li><span class="icon">🏰</span><div class="text"><strong>Castelvecchio</strong><span>Magnificent 14th-century castle with museum inside and a lovely river bridge walk.</span></div></li>
+        <li><span class="icon">🍷</span><div class="text"><strong>Food & drink</strong><span>Try risotto all'Amarone and a glass of Valpolicella from the nearby wine region.</span></div></li>
+      </ul>
+    </div>
+    <div class="links-panel">
+      <div class="link-row-label">🏨 Hotels · Verona 25–27 May</div>
+      <div class="link-row">
+        <a class="lnk hotel" href="https://www.booking.com/searchresults.html?city=-121840&checkin=2026-05-25&checkout=2026-05-27" target="_blank" rel="noopener"><span class="li">🌐</span>Booking.com</a>
+        <a class="lnk hotel" href="https://www.hotels.com/search.do?destination=Verona%2C+Italy&startDate=05%2F25%2F2026&endDate=05%2F27%2F2026" target="_blank" rel="noopener"><span class="li">🏩</span>Hotels.com</a>
+        <a class="lnk hotel" href="https://www.airbnb.com/s/Verona--Italy/homes?checkin=2026-05-25&checkout=2026-05-27" target="_blank" rel="noopener"><span class="li">🏠</span>Airbnb</a>
+        <a class="lnk hotel" href="https://www.tripadvisor.com/Hotels-g187871-Verona_Province_of_Verona_Veneto-Hotels.html" target="_blank" rel="noopener"><span class="li">⭐</span>TripAdvisor</a>
+      </div>
+      <div class="link-row-label" style="margin-top:8px;">🗺️ Verona City Guides</div>
+      <div class="link-row">
+        <a class="lnk guide" href="https://www.tourism.verona.it/en" target="_blank" rel="noopener"><span class="li">🏙️</span>tourism.verona.it <span class="lnk-note">Official guide</span></a>
+        <a class="lnk guide" href="https://www.arena.it/en/arena-di-verona" target="_blank" rel="noopener"><span class="li">🏟️</span>Arena di Verona Tickets</a>
+        <a class="lnk guide" href="https://www.museiciviciverona.it/en" target="_blank" rel="noopener"><span class="li">🏛️</span>Verona Museums</a>
+        <a class="lnk guide" href="https://www.lonelyplanet.com/italy/veneto/verona" target="_blank" rel="noopener"><span class="li">📖</span>Lonely Planet</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ LAKE GARDA ══ -->
+  <div class="section-heading"><h2>Lake Garda, Italy</h2><div class="line"></div><div class="city-pill italy">🌊 1 night</div></div>
+  <div class="transport-card">
+    <div class="tc-header"><span>🚦</span> Verona → Lake Garda</div>
+    <div class="transport-options">
+      <div class="transport-option selected" onclick="selectTransport(this)"><div class="to-mode">🚗</div><div class="to-name">Hire Car</div><div class="to-time">~30 min</div><div class="to-tip">Best for the lake — freedom to explore multiple lakeside towns at your own pace.</div></div>
+      <div class="transport-option" onclick="selectTransport(this)"><div class="to-mode">🚂</div><div class="to-name">Train + Bus</div><div class="to-time">~45 min</div><div class="to-tip">Train to Desenzano del Garda, then local bus to Sirmione.</div></div>
+    </div>
+  </div>
+  <div class="day-card" onclick="toggleCard(this)">
+    <div class="day-header">
+      <div class="day-stripe s-italy"></div>
+      <div class="day-date-box"><div class="weekday">Wed</div><div class="date-num">27</div><div class="month">May</div></div>
+      <div class="day-summary"><div class="location">Lake Garda · 1 night</div><div class="title">🌊 Lake Garda — Sirmione Castle & the Lakeside</div><div class="subtitle">Crowd level LOW ✅ · Ferry rides · Swimming · Relaxed pace</div></div>
+      <div class="day-toggle">▼</div>
+    </div>
+    <div class="day-body">
+      <ul>
+        <li><span class="icon">🏰</span><div class="text"><strong>Sirmione</strong><span>Stunning peninsula with a 13th-century castle. Walk the old town walls and look out over the water.</span></div></li>
+        <li><span class="icon">⛴️</span><div class="text"><strong>Ferry across the lake</strong><span>Between Sirmione, Lazise, Bardolino and Peschiera — great views and a lovely way to spend a few hours.</span></div></li>
+        <li><span class="icon">🏊</span><div class="text"><strong>Swimming</strong><span>Late May the lake is warm enough for a dip — great family wind-down after all that football!</span></div></li>
+        <li><span class="icon">🍕</span><div class="text"><strong>Lakeside dinner</strong><span>Book ahead at a restaurant in Sirmione or Lazise — beautiful setting as the sun goes down.</span></div></li>
+      </ul>
+    </div>
+    <div class="links-panel">
+      <div class="link-row-label">🏨 Hotels · Lake Garda 27–28 May</div>
+      <div class="link-row">
+        <a class="lnk hotel" href="https://www.booking.com/searchresults.html?city=-116102&checkin=2026-05-27&checkout=2026-05-28" target="_blank" rel="noopener"><span class="li">🌐</span>Booking.com <span class="lnk-note">Sirmione</span></a>
+        <a class="lnk hotel" href="https://www.hotels.com/search.do?destination=Sirmione%2C+Italy&startDate=05%2F27%2F2026&endDate=05%2F28%2F2026" target="_blank" rel="noopener"><span class="li">🏩</span>Hotels.com</a>
+        <a class="lnk hotel" href="https://www.airbnb.com/s/Sirmione--Italy/homes?checkin=2026-05-27&checkout=2026-05-28" target="_blank" rel="noopener"><span class="li">🏠</span>Airbnb</a>
+        <a class="lnk hotel" href="https://www.tripadvisor.com/Hotels-g187867-Sirmione_Province_of_Brescia_Lombardy-Hotels.html" target="_blank" rel="noopener"><span class="li">⭐</span>TripAdvisor</a>
+      </div>
+      <div class="link-row-label" style="margin-top:8px;">🗺️ Lake Garda Guides</div>
+      <div class="link-row">
+        <a class="lnk guide" href="https://www.visitgarda.com/en" target="_blank" rel="noopener"><span class="li">🌊</span>visitgarda.com <span class="lnk-note">Official guide</span></a>
+        <a class="lnk guide" href="https://www.navigazionelaghi.it/en/lake-garda" target="_blank" rel="noopener"><span class="li">⛴️</span>Ferry Timetables</a>
+        <a class="lnk guide" href="https://www.sirmioneterme.it/en" target="_blank" rel="noopener"><span class="li">🏰</span>Sirmione Official</a>
+        <a class="lnk guide" href="https://www.lonelyplanet.com/italy/lombardy/lake-garda" target="_blank" rel="noopener"><span class="li">📖</span>Lonely Planet</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ MILAN ══ -->
+  <div class="section-heading"><h2>Milan, Italy</h2><div class="line"></div><div class="city-pill italy">🏙️ 2 nights</div></div>
+  <div class="transport-card">
+    <div class="tc-header"><span>🚦</span> Lake Garda → Milan</div>
+    <div class="transport-options">
+      <div class="transport-option selected" onclick="selectTransport(this)"><div class="to-mode">🚗</div><div class="to-name">Hire Car</div><div class="to-time">~1h 30m</div><div class="to-tip">Drop car in Milan — most agencies have city drop-off. A4 motorway.</div></div>
+      <div class="transport-option" onclick="selectTransport(this)"><div class="to-mode">🚂</div><div class="to-name">Train</div><div class="to-time">~1h 15m</div><div class="to-tip">From Desenzano direct to Milano Centrale. Fast and easy!</div></div>
+    </div>
+  </div>
+  <div class="day-card" onclick="toggleCard(this)">
+    <div class="day-header">
+      <div class="day-stripe s-italy"></div>
+      <div class="day-date-box"><div class="weekday">Thu–Fri</div><div class="date-num">28–29</div><div class="month">May</div></div>
+      <div class="day-summary"><div class="location">Milan · 2 nights</div><div class="title">🏙️ Milan — Duomo, Navigli & City Life</div><div class="subtitle">Crowd level MODERATE ✅ · Then high-speed train to Paris!</div></div>
+      <div class="day-toggle">▼</div>
+    </div>
+    <div class="day-body">
+      <ul>
+        <li><span class="icon">⛪</span><div class="text"><strong>Duomo di Milano</strong><span>One of the most impressive cathedrals in the world. Go up to the rooftop terraces — incredible views including the Alps on a clear day!</span></div></li>
+        <li><span class="icon">🛍️</span><div class="text"><strong>Galleria Vittorio Emanuele II</strong><span>Stunning 19th-century shopping arcade next to the Duomo. Have a coffee at Caffè Zucca!</span></div></li>
+        <li><span class="icon">🌊</span><div class="text"><strong>Navigli Canal District</strong><span>Milan's coolest neighbourhood for evening dining — buzzing canal-side atmosphere.</span></div></li>
+        <li><span class="icon">⚽</span><div class="text"><strong>San Siro Stadium Tour</strong><span>Shared home of AC Milan and Inter Milan — iconic even outside matchdays!</span></div></li>
+        <li><span class="icon">🎨</span><div class="text"><strong>The Last Supper</strong><span>Leonardo da Vinci's masterpiece is in Milan — book tickets months in advance, strictly limited!</span></div></li>
+      </ul>
+    </div>
+    <div class="links-panel">
+      <div class="link-row-label">🏨 Hotels · Milan 28–30 May</div>
+      <div class="link-row">
+        <a class="lnk hotel" href="https://www.booking.com/searchresults.html?city=-121726&checkin=2026-05-28&checkout=2026-05-30" target="_blank" rel="noopener"><span class="li">🌐</span>Booking.com</a>
+        <a class="lnk hotel" href="https://www.hotels.com/search.do?destination=Milan%2C+Italy&startDate=05%2F28%2F2026&endDate=05%2F30%2F2026" target="_blank" rel="noopener"><span class="li">🏩</span>Hotels.com</a>
+        <a class="lnk hotel" href="https://www.airbnb.com/s/Milan--Italy/homes?checkin=2026-05-28&checkout=2026-05-30" target="_blank" rel="noopener"><span class="li">🏠</span>Airbnb</a>
+        <a class="lnk hotel" href="https://www.tripadvisor.com/Hotels-g187849-Milan_Lombardy-Hotels.html" target="_blank" rel="noopener"><span class="li">⭐</span>TripAdvisor</a>
+      </div>
+      <div class="link-row-label" style="margin-top:8px;">🗺️ Milan City Guides</div>
+      <div class="link-row">
+        <a class="lnk guide" href="https://www.turismo.milano.it/en" target="_blank" rel="noopener"><span class="li">🏙️</span>turismo.milano.it <span class="lnk-note">Official guide</span></a>
+        <a class="lnk guide" href="https://www.duomomilano.it/en" target="_blank" rel="noopener"><span class="li">⛪</span>Duomo Rooftop Tickets</a>
+        <a class="lnk guide" href="https://www.sansiro.net/en/museum-tour" target="_blank" rel="noopener"><span class="li">⚽</span>San Siro Stadium Tour</a>
+        <a class="lnk guide" href="https://www.lonelyplanet.com/italy/lombardy/milan" target="_blank" rel="noopener"><span class="li">📖</span>Lonely Planet</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PARIS ══ -->
+  <div class="section-heading"><h2>Paris, France</h2><div class="line"></div><div class="city-pill france">🇫🇷 3 days</div></div>
+  <div class="transport-card">
+    <div class="tc-header"><span>🚦</span> Milan → Paris</div>
+    <div class="transport-options">
+      <div class="transport-option selected" onclick="selectTransport(this)"><div class="to-mode">🚄</div><div class="to-name">High-Speed Train (TGV)</div><div class="to-time">~7h</div><div class="to-tip">Milano Centrale → Paris Gare de Lyon. Scenic & comfortable — book on Trenitalia or SNCF early!</div></div>
+      <div class="transport-option" onclick="selectTransport(this)"><div class="to-mode">✈️</div><div class="to-name">Short-haul Flight</div><div class="to-time">~1h 45m + transfers</div><div class="to-tip">Linate/Malpensa to CDG or Orly. Quicker in the air but more hassle with bags.</div></div>
+    </div>
+  </div>
+  <div class="day-card" onclick="toggleCard(this)">
+    <div class="day-header">
+      <div class="day-stripe s-france"></div>
+      <div class="day-date-box"><div class="weekday">Sat</div><div class="date-num">30</div><div class="month">May</div></div>
+      <div class="day-summary"><div class="location">Paris · Day 1</div><div class="title">🗼 Paris Sightseeing Day</div><div class="subtitle">Eiffel Tower · Notre Dame · Sacré-Cœur · Seine Cruise</div></div>
+      <div class="day-toggle">▼</div>
+    </div>
+    <div class="day-body">
+      <ul>
+        <li><span class="icon">🗼</span><div class="text"><strong>Eiffel Tower</strong><span>Book tickets online well in advance — queues are hours long without them!</span></div></li>
+        <li><span class="icon">🚢</span><div class="text"><strong>Seine River Cruise</strong><span>Bateaux Mouches — a lovely way to see Paris from the water.</span></div></li>
+        <li><span class="icon">⛪</span><div class="text"><strong>Notre Dame Cathedral</strong><span>Beautifully restored after the 2019 fire — stunning exterior and square.</span></div></li>
+        <li><span class="icon">🎨</span><div class="text"><strong>Sacré-Cœur & Montmartre</strong><span>Take the funicular up the hill — artists, cafés and incredible panoramic views.</span></div></li>
+      </ul>
+    </div>
+    <div class="links-panel">
+      <div class="link-row-label">🏨 Hotels · Paris 30 May – 2 Jun</div>
+      <div class="link-row">
+        <a class="lnk hotel" href="https://www.booking.com/searchresults.html?city=-1456928&checkin=2026-05-30&checkout=2026-06-02" target="_blank" rel="noopener"><span class="li">🌐</span>Booking.com</a>
+        <a class="lnk hotel" href="https://www.hotels.com/search.do?destination=Paris%2C+France&startDate=05%2F30%2F2026&endDate=06%2F02%2F2026" target="_blank" rel="noopener"><span class="li">🏩</span>Hotels.com</a>
+        <a class="lnk hotel" href="https://www.airbnb.com/s/Paris--France/homes?checkin=2026-05-30&checkout=2026-06-02" target="_blank" rel="noopener"><span class="li">🏠</span>Airbnb</a>
+        <a class="lnk hotel" href="https://hotel.disneyland.com/disney-hotels/" target="_blank" rel="noopener"><span class="li">🏰</span>Disney Hotels <span class="lnk-note">Early park entry!</span></a>
+      </div>
+      <div class="link-row-label" style="margin-top:8px;">🗺️ Paris City Guides</div>
+      <div class="link-row">
+        <a class="lnk guide" href="https://en.parisinfo.com" target="_blank" rel="noopener"><span class="li">🏙️</span>parisinfo.com <span class="lnk-note">Official guide</span></a>
+        <a class="lnk guide" href="https://www.toureiffel.paris/en" target="_blank" rel="noopener"><span class="li">🗼</span>Eiffel Tower Tickets</a>
+        <a class="lnk guide" href="https://www.disneylandparis.com/en-gb" target="_blank" rel="noopener"><span class="li">🎢</span>Disneyland Paris</a>
+        <a class="lnk guide" href="https://www.lonelyplanet.com/france/paris" target="_blank" rel="noopener"><span class="li">📖</span>Lonely Planet</a>
+      </div>
+    </div>
+  </div>
+  <div class="day-card" onclick="toggleCard(this)">
+    <div class="day-header">
+      <div class="day-stripe s-france"></div>
+      <div class="day-date-box"><div class="weekday">Sun–Mon</div><div class="date-num">31 May–1 Jun</div><div class="month"></div></div>
+      <div class="day-summary"><div class="location">Paris · Days 2 & 3</div><div class="title">🎢 Disneyland Paris — 2 Full Days!</div><div class="subtitle">Disneyland Park · Disney Adventure World · World of Frozen opens 2026!</div></div>
+      <div class="day-toggle">▼</div>
+    </div>
+    <div class="day-body">
+      <ul>
+        <li><span class="icon">🎢</span><div class="text"><strong>Disneyland Park</strong><span>Sleeping Beauty Castle, Space Mountain, Pirates of the Caribbean, Haunted Mansion — the classic park!</span></div></li>
+        <li><span class="icon">🎬</span><div class="text"><strong>Disney Adventure World</strong><span>Avengers Campus, Toy Story Land, Tower of Terror — plus the brand new World of Frozen opened March 2026!</span></div></li>
+        <li><span class="icon">⚠️</span><div class="text"><strong>Crowd tip</strong><span>31 May (Sunday) will be busier than 1 June (Monday). Use Premier Access for the 2–3 biggest rides and arrive before opening!</span></div></li>
+        <li><span class="icon">🚂</span><div class="text"><strong>Getting there</strong><span>RER A train from central Paris — 40 min, ~EUR 8 each way.</span></div></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══ UK ══ -->
+  <div class="section-heading"><h2>United Kingdom</h2><div class="line"></div><div class="city-pill uk">🇬🇧 3–4 days</div></div>
+  <div class="transport-card">
+    <div class="tc-header"><span>🚦</span> Paris → UK</div>
+    <div class="transport-options">
+      <div class="transport-option selected" onclick="selectTransport(this)"><div class="to-mode">🚄</div><div class="to-name">Eurostar</div><div class="to-time">~2h 15m</div><div class="to-tip">Paris Gare du Nord → London St Pancras. Book at eurostar.com!</div></div>
+      <div class="transport-option" onclick="selectTransport(this)"><div class="to-mode">✈️</div><div class="to-name">Short-haul Flight</div><div class="to-time">~1h 15m + transfers</div><div class="to-tip">CDG to Gatwick, Heathrow or Stansted.</div></div>
+    </div>
+  </div>
+  <div class="day-card" onclick="toggleCard(this)">
+    <div class="day-header">
+      <div class="day-stripe s-uk"></div>
+      <div class="day-date-box"><div class="weekday">Tue</div><div class="date-num">2</div><div class="month">Jun</div></div>
+      <div class="day-summary"><div class="location">Paris → UK</div><div class="title">🚄 Travel to the UK + Visiting Family</div><div class="subtitle">Eurostar to London · Crowd level MODERATE ✅ · 3–4 days to explore</div></div>
+      <div class="day-toggle">▼</div>
+    </div>
+    <div class="day-body">
+      <ul>
+        <li><span class="icon">🚄</span><div class="text"><strong>Eurostar from Paris Gare du Nord</strong><span>Arrives London St Pancras International. Allow extra time for passport control at both ends!</span></div></li>
+        <li><span class="icon">👨‍👩‍👦</span><div class="text"><strong>Visiting family</strong><span>Add your own plans below — UK schools haven't broken up yet so June is a great window!</span></div></li>
+        <li><span class="icon">💷</span><div class="text"><strong>Currency</strong><span>British Pounds (GBP). London is very contactless-friendly.</span></div></li>
+      </ul>
+    </div>
+    <div class="links-panel">
+      <div class="link-row-label">🏨 Hotels · London 2–12 Jun</div>
+      <div class="link-row">
+        <a class="lnk hotel" href="https://www.booking.com/searchresults.html?city=-2601889&checkin=2026-06-02&checkout=2026-06-06" target="_blank" rel="noopener"><span class="li">🌐</span>Booking.com <span class="lnk-note">2–6 Jun</span></a>
+        <a class="lnk hotel" href="https://www.hotels.com/search.do?destination=London%2C+United+Kingdom&startDate=06%2F02%2F2026&endDate=06%2F06%2F2026" target="_blank" rel="noopener"><span class="li">🏩</span>Hotels.com</a>
+        <a class="lnk hotel" href="https://www.airbnb.com/s/London--United-Kingdom/homes?checkin=2026-06-02&checkout=2026-06-06" target="_blank" rel="noopener"><span class="li">🏠</span>Airbnb</a>
+        <a class="lnk hotel" href="https://www.tripadvisor.com/Hotels-g186338-London_England-Hotels.html" target="_blank" rel="noopener"><span class="li">⭐</span>TripAdvisor</a>
+      </div>
+      <div class="link-row-label" style="margin-top:8px;">🗺️ UK City Guides</div>
+      <div class="link-row">
+        <a class="lnk guide" href="https://www.visitlondon.com" target="_blank" rel="noopener"><span class="li">🏙️</span>visitlondon.com <span class="lnk-note">Official guide</span></a>
+        <a class="lnk guide" href="https://www.visitbritain.com/en" target="_blank" rel="noopener"><span class="li">🗺️</span>Visit Britain</a>
+        <a class="lnk guide" href="https://www.eurostar.com" target="_blank" rel="noopener"><span class="li">🚄</span>Eurostar Tickets</a>
+        <a class="lnk guide" href="https://www.lonelyplanet.com/england/london" target="_blank" rel="noopener"><span class="li">📖</span>Lonely Planet</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- USER-ADDED UK DAYS -->
+  <div id="ext-days-container" style="margin-top:4px;"></div>
+
+  <!-- ADD FORM -->
+  <div class="add-section">
+    <h3>✨ Add Your UK Days</h3>
+    <p>Planning sightseeing around your family visits? Add activities here — sorted by date.</p>
+    <div class="add-form">
+      <div class="form-group"><label>Date</label><input type="date" id="f-date" min="2026-06-02" max="2026-06-12"></div>
+      <div class="form-group"><label>City / Area</label><input type="text" id="f-dest" placeholder="e.g. London, Manchester…"></div>
+      <div class="form-group"><label>Activity / Title</label><input type="text" id="f-title" placeholder="e.g. Old Trafford Stadium Tour"></div>
+      <div class="form-group" style="max-width:90px;"><label>Emoji</label><input type="text" id="f-emoji" placeholder="🏟️" maxlength="4"></div>
+      <div class="form-group full"><label>Notes & bookings</label><textarea id="f-notes" placeholder="Restaurants booked, tickets, travel times…"></textarea></div>
+    </div>
+    <div style="margin-top:14px;">
+      <p style="font-size:12px;opacity:0.6;margin-bottom:10px;">Quick suggestions:</p>
+      <div style="display:flex;flex-wrap:wrap;gap:7px;">
+        <span style="font-size:12px;padding:5px 12px;border-radius:20px;background:rgba(207,20,43,0.08);border:1px solid rgba(207,20,43,0.15);cursor:pointer;" onclick="prefill('Manchester','Old Trafford 🔴','Manchester United stadium & museum — a must for Luke! Stretford End walk, club shop','🏟️')">Old Trafford 🔴</span>
+        <span style="font-size:12px;padding:5px 12px;border-radius:20px;background:rgba(207,20,43,0.08);border:1px solid rgba(207,20,43,0.15);cursor:pointer;" onclick="prefill('London','Wembley Stadium Tour 🏆','England national stadium — iconic arch, dressing rooms, Royal Box, pitch walk','🏆')">Wembley 🏆</span>
+        <span style="font-size:12px;padding:5px 12px;border-radius:20px;background:rgba(207,20,43,0.08);border:1px solid rgba(207,20,43,0.15);cursor:pointer;" onclick="prefill('London','London Sightseeing 🎡','Tower of London, Tower Bridge, Borough Market, Hyde Park, Thames walk','🎡')">London Sightseeing</span>
+        <span style="font-size:12px;padding:5px 12px;border-radius:20px;background:rgba(207,20,43,0.08);border:1px solid rgba(207,20,43,0.15);cursor:pointer;" onclick="prefill('Liverpool','Liverpool ⚽','Anfield stadium tour, Beatles tour, Albert Dock, Museum of Liverpool','⚽')">Liverpool ⚽</span>
+        <span style="font-size:12px;padding:5px 12px;border-radius:20px;background:rgba(207,20,43,0.08);border:1px solid rgba(207,20,43,0.15);cursor:pointer;" onclick="prefill('Cotswolds','Cotswolds Day Trip 🌾','Bourton-on-the-Water, Bibury, Broadway — gorgeous English villages','🌾')">Cotswolds 🌾</span>
+        <span style="font-size:12px;padding:5px 12px;border-radius:20px;background:rgba(207,20,43,0.08);border:1px solid rgba(207,20,43,0.15);cursor:pointer;" onclick="prefill('Windsor','Windsor & Stonehenge 🗿','Windsor Castle day trip + Stonehenge en route — both iconic','🗿')">Windsor & Stonehenge</span>
+        <span style="font-size:12px;padding:5px 12px;border-radius:20px;background:rgba(207,20,43,0.08);border:1px solid rgba(207,20,43,0.15);cursor:pointer;" onclick="prefill('Bath','Bath 🛁','Roman Baths, Georgian architecture, Thermae Bath Spa','🛁')">Bath 🛁</span>
+      </div>
+    </div>
+    <button class="btn-add" onclick="addDestination()">+ Add to My UK Itinerary</button>
+  </div>
+
+  <!-- ══ DEPARTURES ══ -->
+  <div class="section-heading" style="margin-top:48px;"><h2>Homeward Bound</h2><div class="line"></div><div class="city-pill flight-col">Gatwick ✈️</div></div>
+  <div class="transport-card">
+    <div class="tc-header"><span>🚦</span> Getting to London Gatwick Airport</div>
+    <div class="transport-options">
+      <div class="transport-option selected" onclick="selectTransport(this)"><div class="to-mode">🚂</div><div class="to-name">Gatwick Express</div><div class="to-time">30 min from Victoria</div><div class="to-tip">Every 15 min from London Victoria — fastest and most reliable.</div></div>
+      <div class="transport-option" onclick="selectTransport(this)"><div class="to-mode">🚕</div><div class="to-name">Taxi / Uber</div><div class="to-time">~45–75 min</div><div class="to-tip">Good with heavy luggage — book ahead!</div></div>
+      <div class="transport-option" onclick="selectTransport(this)"><div class="to-mode">🚌</div><div class="to-name">National Express</div><div class="to-time">~90 min</div><div class="to-tip">Coach from Victoria Coach Station. Cheapest option.</div></div>
+    </div>
+  </div>
+
+  <div class="departure-banner">
+    <div class="dep-half luke-dep">
+      <h4>✈️ Luke &amp; Matt — Depart 6 June 2026</h4>
+      <p class="dep-sub">London Gatwick → Dubai → Sydney</p>
+      <div class="dep-flights">
+        <div class="dep-flight"><div class="df-num">EK016</div><div class="df-route">LGW → DXB</div><div class="df-time">Gatwick to Dubai</div></div>
+        <div class="dep-flight"><div class="df-num">EK414</div><div class="df-route">DXB → SYD</div><div class="df-time">Dubai to Sydney</div></div>
+      </div>
+    </div>
+    <div class="dep-half jo-dep">
+      <h4>✈️ Jo — Departs 12 June 2026</h4>
+      <p class="dep-sub">London Gatwick → Dubai → Sydney</p>
+      <div class="dep-flights">
+        <div class="dep-flight"><div class="df-num">EK016</div><div class="df-route">LGW → DXB</div><div class="df-time">Gatwick to Dubai</div></div>
+        <div class="dep-flight"><div class="df-num">EK414</div><div class="df-route">DXB → SYD</div><div class="df-time">Dubai to Sydney</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:8px;padding:14px 18px;background:rgba(44,82,130,0.07);border-radius:10px;border:1px solid rgba(44,82,130,0.18);font-size:13px;">
+    💡 <strong>Jo gets an extra 6 days after Luke &amp; Matt head home on 6 June!</strong> Scotland, Wales, or more time visiting family before departing on the 12th.
+  </div>
+
+  <div style="margin-top:44px;padding:24px;background:var(--ink);color:var(--paper);border-radius:14px;">
+    <p style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;opacity:0.45;margin-bottom:10px;">Tour Coordinator — Football Leg</p>
+    <p style="font-family:'Playfair Display',serif;font-size:18px;margin-bottom:8px;">Dusan Mihajlovic — Lion Sport Travel</p>
+    <p style="font-size:13px;opacity:0.6;">📧 dusan@lstravel.com.au &nbsp;&nbsp;📞 +61 413 821 321</p>
+  </div>
+</main>
+
+<script>
+  function toggleCard(card) { card.classList.toggle('open'); }
+  function selectTransport(el) {
+    el.parentElement.querySelectorAll('.transport-option').forEach(s => s.classList.remove('selected'));
+    el.classList.add('selected');
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    const first = document.querySelector('.day-card');
+    if (first) first.classList.add('open');
+  });
+
+  let destinations = [];
+
+  function prefill(dest, title, notes, emoji) {
+    document.getElementById('f-dest').value = dest;
+    document.getElementById('f-title').value = title;
+    document.getElementById('f-notes').value = notes;
+    document.getElementById('f-emoji').value = emoji || '📍';
+    document.getElementById('f-date').focus();
+    document.querySelector('.add-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function addDestination() {
+    const date = document.getElementById('f-date').value;
+    const dest = document.getElementById('f-dest').value.trim();
+    const title = document.getElementById('f-title').value.trim();
+    const emoji = document.getElementById('f-emoji').value.trim() || '📍';
+    const notes = document.getElementById('f-notes').value.trim();
+    if (!dest || !title) { alert('Please fill in at least the city and activity!'); return; }
+    destinations.push({ date, dest, title, emoji, notes, id: Date.now() });
+    renderDestinations();
+    ['f-date','f-dest','f-title','f-emoji','f-notes'].forEach(id => document.getElementById(id).value = '');
+  }
+
+  function removeDestination(id) {
+    destinations = destinations.filter(d => d.id !== id);
+    renderDestinations();
+  }
+
+  function renderDestinations() {
+    const container = document.getElementById('ext-days-container');
+    if (!destinations.length) { container.innerHTML = ''; return; }
+    const sorted = [...destinations].sort((a,b) => {
+      if (!a.date) return 1; if (!b.date) return -1;
+      return a.date.localeCompare(b.date);
+    });
+    container.innerHTML = sorted.map(d => {
+      const dateStr = d.date ? formatDate(d.date) : '';
+      return `<div class="ext-card">
+        <div class="ext-card-header">
+          <div>
+            <div class="ec-dest">UK · ${escHtml(d.dest)}</div>
+            <div style="font-family:'Playfair Display',serif;font-size:17px;">${d.emoji} ${escHtml(d.title)}</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            ${dateStr ? `<span class="ec-date">${dateStr}</span>` : ''}
+            <button class="btn-remove" onclick="removeDestination(${d.id})">x</button>
+          </div>
+        </div>
+        ${d.notes ? `<div class="ec-notes">${escHtml(d.notes)}</div>` : ''}
+      </div>`;
+    }).join('');
+  }
+
+  function formatDate(str) {
+    if (!str) return '';
+    return new Date(str+'T00:00:00').toLocaleDateString('en-AU', { weekday:'short', day:'numeric', month:'short' });
+  }
+  function escHtml(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+</script>
+</body>
+</html>
