@@ -40,10 +40,37 @@
     text-transform: uppercase;
     color: white;
   }
-  .sl-mufc   { background: #1B4F8A; }
-  .sl-italy  { background: #2E7D32; }
-  .sl-france { background: #1565C0; }
-  .sl-uk     { background: #8B1A1A; }
+  .sl-mufc      { background: #1B4F8A; }
+  .sl-italy     { background: #2E7D32; }
+  .sl-italy-alt { background: #b45309; }
+  .sl-france    { background: #1565C0; }
+  .sl-uk        { background: #8B1A1A; }
+
+  /* ── ALTERNATIVE PLAN NOTE ── */
+  .alt-plan-note {
+    background: #fffbeb;
+    border-left: 4px solid #b45309;
+    padding: 10px 40px;
+    font-size: 0.75rem;
+    color: #78350f;
+    font-weight: 500;
+  }
+
+  /* ── DAY TRIP INDICATORS ── */
+  .stop-daytrips {
+    margin-top: 8px;
+    padding-top: 7px;
+    border-top: 1px solid rgba(255,255,255,0.18);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .daytrip {
+    font-size: 0.63rem;
+    opacity: 0.88;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+  }
 
   /* ── TIMELINE WRAPPER ── */
   .timeline-outer {
@@ -406,7 +433,7 @@
 </div>
 
 <!-- ═══════════════════ SECTION: ITALY ═══════════════════ -->
-<div class="section-label sl-italy">🇮🇹&nbsp; Italy — 24 May – 30 May &nbsp;·&nbsp; 6 nights &nbsp;·&nbsp; Verona  &middot;  Milan</div>
+<div class="section-label sl-italy">🇮🇹&nbsp; Italy — Option A &nbsp;·&nbsp; 24 May – 30 May &nbsp;·&nbsp; 6 nights &nbsp;·&nbsp; Verona &middot; Milan</div>
 
 <div class="timeline-outer">
   <div class="timeline">
@@ -461,6 +488,53 @@
       <div>
         <div class="stop-nights">3 <span>nights</span></div>
         <div class="pace-badge pace-good">Good</div>
+      </div>
+    </div>
+
+    <div style="padding-right:20px"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SECTION: ITALY — OPTION B ═══════════════════ -->
+<div class="section-label sl-italy-alt">🇮🇹&nbsp; Italy — Option B &nbsp;·&nbsp; 24 May – 30 May &nbsp;·&nbsp; 6 nights &nbsp;·&nbsp; Milan Base Camp</div>
+<div class="alt-plan-note">💡 Alternative: Skip Verona, base entirely in Milan. Unpack once, three full city days plus Lake Como and Florence as day trips.</div>
+
+<div class="timeline-outer">
+  <div class="timeline">
+
+    <div style="padding-left:20px"></div>
+
+    <!-- TRAIN AUSTRIA→MILAN (Brenner Pass) -->
+    <div class="transport">
+      <div class="transport-icon">🚂</div>
+      <div class="transport-line"></div>
+      <div class="transport-mode">Brenner Pass Train</div>
+      <div class="transport-time">~4.5 hrs · eve.</div>
+    </div>
+
+    <!-- MILAN — 6 NIGHTS -->
+    <div class="stop italy" style="width:300px">
+      <div>
+        <div class="stop-city">Milan</div>
+        <div class="stop-country">🇮🇹 Lombardy — Single Base</div>
+        <div class="stop-dates">24 May (eve) – 30 May</div>
+        <div class="stop-detail">
+          <strong>City Day 1:</strong> San Siro tour · Navigli canals &amp; aperitivo<br>
+          <strong>City Day 2:</strong> Duomo rooftop · The Last Supper (pre-book) · Brera<br>
+          <strong>City Day 3:</strong> Leonardo da Vinci Museum · Quadrilatero fashion district · Pinacoteca di Brera
+        </div>
+        <div class="stop-daytrips">
+          <div class="daytrip">⛴️ Day Trip — Lake Como &nbsp;·&nbsp; 1 hr by train · Bellagio, Varenna, Villa del Balbianello</div>
+          <div class="daytrip">🎨 Day Trip — Florence &nbsp;·&nbsp; 1h 45m Frecciarossa · Uffizi or David + Duomo + Ponte Vecchio</div>
+        </div>
+        <div class="stop-weather">
+          <div class="sw-temp">🌡️ 23–27°C · Hot &amp; humid, afternoon thunderstorms possible</div>
+          <div class="sw-kit">👕 Shorts &amp; t-shirts · 🕶️ Sunglasses &amp; sunscreen · 🌩️ Light waterproof for surprise storms</div>
+        </div>
+      </div>
+      <div>
+        <div class="stop-nights">6 <span>nights</span></div>
+        <div class="pace-badge pace-relaxed">Relaxed</div>
       </div>
     </div>
 
