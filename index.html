@@ -46,6 +46,67 @@
   .sl-france    { background: #1565C0; }
   .sl-uk        { background: #8B1A1A; }
 
+  /* ── MILAN DAY-BY-DAY ── */
+  .day-section {
+    padding: 28px 40px 32px;
+    background: #fafafa;
+    border-top: 1px solid #e0e0e0;
+  }
+  .day-section h2 {
+    font-size: 1rem; font-weight: 800; color: #1B4F8A;
+    letter-spacing: 0.5px; text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .day-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 14px;
+  }
+  .day-card {
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.09);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .day-card-header {
+    padding: 12px 16px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .day-card.arrival   .day-card-header { background: linear-gradient(135deg,#1a3a5c,#2a5080); color:white; }
+  .day-card.city      .day-card-header { background: linear-gradient(135deg,#2E7D32,#1b5e20); color:white; }
+  .day-card.daytrip   .day-card-header { background: linear-gradient(135deg,#1565C0,#0d47a1); color:white; }
+  .day-card.departure .day-card-header { background: linear-gradient(135deg,#555,#333); color:white; }
+  .day-label {
+    font-size: 0.6rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1px; opacity: 0.8;
+  }
+  .day-date  { font-size: 1.1rem; font-weight: 900; line-height: 1.1; margin-top: 2px; }
+  .day-type  { font-size: 1.4rem; line-height: 1; }
+  .day-card-body { padding: 12px 16px 14px; flex: 1; }
+  .day-title {
+    font-size: 0.82rem; font-weight: 800; color: #1a1a1a;
+    margin-bottom: 8px;
+  }
+  .day-activity {
+    font-size: 0.68rem; color: #333; line-height: 1.55;
+    display: flex; gap: 6px; margin-bottom: 4px;
+  }
+  .day-activity-icon { flex-shrink: 0; }
+  .day-note {
+    margin-top: 9px; padding-top: 8px;
+    border-top: 1px solid #eee;
+    font-size: 0.62rem; color: #e65100;
+    font-weight: 600; line-height: 1.4;
+  }
+  @media (max-width: 600px) {
+    .day-section { padding: 20px 16px 24px; }
+    .day-grid { grid-template-columns: 1fr 1fr; }
+  }
+
   /* ── ALTERNATIVE PLAN NOTE ── */
   .alt-plan-note {
     background: #fffbeb;
@@ -456,10 +517,10 @@
     <div class="transport" style="min-width:175px">
       <div class="transport-icon">🚂</div>
       <div class="transport-line"></div>
-      <div class="transport-mode">EC 81 · 1st Class Compartment</div>
+      <div class="transport-mode">EC 81 · 1st Class Open Plan · Table Seats</div>
       <div class="transport-time">Wörgl 08:46 → Verona 12:59</div>
       <div class="transport-detail">via Innsbruck &amp; Brenner · 4h 13m</div>
-      <div class="transport-detail">Car 263 · Seats 51, 52 &amp; 54</div>
+      <div class="transport-detail">Car 262 · Seats 25 &amp; 26 (window) + 24 (aisle)</div>
       <div class="transport-connection">🍽️ 1h 3m in Verona — grab lunch!</div>
       <div class="transport-icon">🚄</div>
       <div class="transport-line"></div>
@@ -495,6 +556,129 @@
     </div>
 
     <div style="padding-right:20px"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ MILAN DAY BY DAY ═══════════════════ -->
+<div class="day-section">
+  <h2>📅 Milan — Day by Day</h2>
+  <div class="day-grid">
+
+    <!-- DAY 1: ARRIVAL -->
+    <div class="day-card arrival">
+      <div class="day-card-header">
+        <div>
+          <div class="day-label">Day 1 · Arrival</div>
+          <div class="day-date">25 May</div>
+        </div>
+        <div class="day-type">🚄</div>
+      </div>
+      <div class="day-card-body">
+        <div class="day-title">Into Milan</div>
+        <div class="day-activity"><span class="day-activity-icon">15:15</span><span>Arrive Milano Centrale off FR 9732</span></div>
+        <div class="day-activity"><span class="day-activity-icon">🏨</span><span>Check in, drop bags, freshen up</span></div>
+        <div class="day-activity"><span class="day-activity-icon">🚶</span><span>Gentle explore — Duomo square &amp; surrounds</span></div>
+        <div class="day-activity"><span class="day-activity-icon">🍹</span><span>Aperitivo hour in the Navigli canal district</span></div>
+        <div class="day-activity"><span class="day-activity-icon">🍝</span><span>Dinner along the Navigli</span></div>
+      </div>
+    </div>
+
+    <!-- DAY 2: CITY DAY 1 -->
+    <div class="day-card city">
+      <div class="day-card-header">
+        <div>
+          <div class="day-label">Day 2 · City</div>
+          <div class="day-date">26 May</div>
+        </div>
+        <div class="day-type">⚽</div>
+      </div>
+      <div class="day-card-body">
+        <div class="day-title">Football & Fashion</div>
+        <div class="day-activity"><span class="day-activity-icon">🏟️</span><span>San Siro stadium tour (morning)</span></div>
+        <div class="day-activity"><span class="day-activity-icon">👗</span><span>Quadrilatero della Moda — window shopping at minimum</span></div>
+        <div class="day-activity"><span class="day-activity-icon">🎨</span><span>Pinacoteca di Brera &amp; Brera neighbourhood wander</span></div>
+        <div class="day-activity"><span class="day-activity-icon">🍕</span><span>Lunch &amp; dinner in Brera</span></div>
+        <div class="day-note">⚠️ San Siro tour — pre-book online</div>
+      </div>
+    </div>
+
+    <!-- DAY 3: CITY DAY 2 -->
+    <div class="day-card city">
+      <div class="day-card-header">
+        <div>
+          <div class="day-label">Day 3 · City</div>
+          <div class="day-date">27 May</div>
+        </div>
+        <div class="day-type">🎨</div>
+      </div>
+      <div class="day-card-body">
+        <div class="day-title">Art & Architecture</div>
+        <div class="day-activity"><span class="day-activity-icon">🕌</span><span>Duomo rooftop — early morning, beat the crowds</span></div>
+        <div class="day-activity"><span class="day-activity-icon">🖼️</span><span>The Last Supper (Cenacolo) — specific time slot</span></div>
+        <div class="day-activity"><span class="day-activity-icon">🔬</span><span>Leonardo da Vinci Museum (Museo Nazionale della Scienza)</span></div>
+        <div class="day-activity"><span class="day-activity-icon">🌆</span><span>Galleria Vittorio Emanuele II for evening stroll</span></div>
+        <div class="day-note">⚠️ The Last Supper — must pre-book weeks in advance</div>
+      </div>
+    </div>
+
+    <!-- DAY 4: LAKE COMO -->
+    <div class="day-card daytrip">
+      <div class="day-card-header">
+        <div>
+          <div class="day-label">Day 4 · Day Trip</div>
+          <div class="day-date">28 May</div>
+        </div>
+        <div class="day-type">⛴️</div>
+      </div>
+      <div class="day-card-body">
+        <div class="day-title">Lake Como</div>
+        <div class="day-activity"><span class="day-activity-icon">🚂</span><span>Early train Milan → Varenna (~1 hr)</span></div>
+        <div class="day-activity"><span class="day-activity-icon">⛴️</span><span>Ferry across to Bellagio</span></div>
+        <div class="day-activity"><span class="day-activity-icon">🏡</span><span>Villa del Balbianello (Star Wars + Bond filming location)</span></div>
+        <div class="day-activity"><span class="day-activity-icon">🍦</span><span>Gelato &amp; lunch lakeside in Bellagio</span></div>
+        <div class="day-activity"><span class="day-activity-icon">🚂</span><span>Late afternoon train back to Milan</span></div>
+        <div class="day-note">💡 Sit on the right side of the train heading north — lake views</div>
+      </div>
+    </div>
+
+    <!-- DAY 5: FLORENCE -->
+    <div class="day-card daytrip">
+      <div class="day-card-header">
+        <div>
+          <div class="day-label">Day 5 · Day Trip</div>
+          <div class="day-date">29 May</div>
+        </div>
+        <div class="day-type">🎨</div>
+      </div>
+      <div class="day-card-body">
+        <div class="day-title">Florence</div>
+        <div class="day-activity"><span class="day-activity-icon">🚄</span><span>Early Frecciarossa Milan → Florence (1h 45m)</span></div>
+        <div class="day-activity"><span class="day-activity-icon">🗿</span><span>Accademia Gallery — Michelangelo's David</span></div>
+        <div class="day-activity"><span class="day-activity-icon">🏛️</span><span>Duomo &amp; Brunelleschi's Dome — rooftop views</span></div>
+        <div class="day-activity"><span class="day-activity-icon">🌉</span><span>Ponte Vecchio &amp; Piazzale Michelangelo at sunset</span></div>
+        <div class="day-activity"><span class="day-activity-icon">🚄</span><span>Evening Frecciarossa back to Milan</span></div>
+        <div class="day-note">⚠️ Accademia &amp; Duomo dome — pre-book timed entry</div>
+      </div>
+    </div>
+
+    <!-- DAY 6: DEPARTURE -->
+    <div class="day-card departure">
+      <div class="day-card-header">
+        <div>
+          <div class="day-label">Day 6 · Departure</div>
+          <div class="day-date">30 May</div>
+        </div>
+        <div class="day-type">✈️</div>
+      </div>
+      <div class="day-card-body">
+        <div class="day-title">Milan → Paris</div>
+        <div class="day-activity"><span class="day-activity-icon">🌅</span><span>Early checkout, bags to storage or straight to airport</span></div>
+        <div class="day-activity"><span class="day-activity-icon">☕</span><span>Final Italian espresso — standing at the bar, the proper way</span></div>
+        <div class="day-activity"><span class="day-activity-icon">✈️</span><span>Flight Milan → Paris (morning)</span></div>
+        <div class="day-activity"><span class="day-activity-icon">🗼</span><span>Arrive Paris — Eiffel Tower afternoon</span></div>
+      </div>
+    </div>
+
   </div>
 </div>
 
