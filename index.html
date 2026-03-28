@@ -153,6 +153,18 @@
   .pace-quick    { background: #e53935; color: white; }
   .pace-family   { background: #8e24aa; color: white; }
 
+  /* ── TRANSPORT DETAIL (booked tickets) ── */
+  .transport-detail {
+    font-size: 0.58rem; font-weight: 600; color: #444;
+    margin-top: 1px; line-height: 1.4; text-align: center;
+  }
+  .transport-connection {
+    font-size: 0.57rem; color: #888; font-style: italic;
+    margin: 4px 0; text-align: center; line-height: 1.4;
+    border-top: 1px dashed #ccc; border-bottom: 1px dashed #ccc;
+    padding: 3px 0;
+  }
+
   /* ── TRANSPORT CONNECTOR ── */
   .transport {
     display: flex;
@@ -440,12 +452,20 @@
 
     <div style="padding-left:20px"></div>
 
-    <!-- TRAIN AUSTRIA→MILAN (Brenner Pass, early morning 25th) -->
-    <div class="transport">
+    <!-- TRAINS AUSTRIA→MILAN: EC81 + FR9732 -->
+    <div class="transport" style="min-width:175px">
       <div class="transport-icon">🚂</div>
       <div class="transport-line"></div>
-      <div class="transport-mode">Brenner Pass Train</div>
-      <div class="transport-time">~4.5 hrs · early morn.</div>
+      <div class="transport-mode">EC 81 · 1st Class Compartment</div>
+      <div class="transport-time">Wörgl 08:46 → Verona 12:59</div>
+      <div class="transport-detail">via Innsbruck &amp; Brenner · 4h 13m</div>
+      <div class="transport-detail">Car 263 · Seats 51, 52 &amp; 54</div>
+      <div class="transport-connection">🍽️ 1h 3m in Verona — grab lunch!</div>
+      <div class="transport-icon">🚄</div>
+      <div class="transport-line"></div>
+      <div class="transport-mode">FR 9732 Frecciarossa · Business</div>
+      <div class="transport-time">Verona 14:02 → Milan 15:15</div>
+      <div class="transport-detail">Car 1 · Seats 7A, 8A &amp; 8B · 1h 13m</div>
     </div>
 
     <!-- MILAN — 5 NIGHTS -->
@@ -453,7 +473,7 @@
       <div>
         <div class="stop-city">Milan</div>
         <div class="stop-country">🇮🇹 Lombardy — Single Base</div>
-        <div class="stop-dates">25 May – 30 May</div>
+        <div class="stop-dates">25 May (arr. 15:15) – 30 May</div>
         <div class="stop-detail">
           <strong>City Day 1:</strong> San Siro tour · Navigli canals &amp; aperitivo<br>
           <strong>City Day 2:</strong> Duomo rooftop · The Last Supper (pre-book) · Brera<br>
