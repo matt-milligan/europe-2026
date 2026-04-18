@@ -376,6 +376,100 @@
     .pace-section, .summary-section { padding: 24px 20px; }
     .legend { padding: 12px 20px; }
   }
+
+  /* ── TODO SECTION ── */
+  .todo-section {
+    background: #fff;
+    border-top: 1px solid #e0e0e0;
+    padding: 24px 40px 28px;
+  }
+  .todo-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .todo-header h2 {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: #1B4F8A;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .todo-progress-wrap {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .todo-progress-bar {
+    width: 120px;
+    height: 6px;
+    background: #e0e0e0;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .todo-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #43a047, #66bb6a);
+    border-radius: 3px;
+    transition: width 0.4s ease;
+  }
+  .todo-progress-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #555;
+    white-space: nowrap;
+  }
+  .todo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .todo-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: #f8f9fb;
+    border-radius: 10px;
+    border: 1.5px solid #e4e8ef;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    user-select: none;
+  }
+  .todo-item:hover { background: #eef2f8; border-color: #b0bdd6; }
+  .todo-item.done  { background: #f0faf1; border-color: #a5d6a7; }
+  .todo-check {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    border: 2px solid #b0bdd6;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.7rem;
+    color: white;
+    background: white;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .todo-item.done .todo-check {
+    background: #43a047;
+    border-color: #43a047;
+  }
+  .todo-text {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    transition: color 0.2s;
+    line-height: 1.4;
+  }
+  .todo-item.done .todo-text {
+    color: #888;
+    text-decoration: line-through;
+  }
+  @media (max-width: 600px) {
+    .todo-section { padding: 20px 16px 24px; }
+    .todo-progress-bar { width: 80px; }
+  }
 </style>
 </head>
 <body>
@@ -404,6 +498,115 @@
   <div class="legend-item"><span style="background:#f9a825;color:#1a1a1a;padding:2px 8px;border-radius:10px;font-size:0.68rem;font-weight:700">GOOD</span> 2 nights</div>
   <div class="legend-item"><span style="background:#e53935;color:white;padding:2px 8px;border-radius:10px;font-size:0.68rem;font-weight:700">QUICK STOP</span> 1 night</div>
 </div>
+
+<!-- ═══════════════════ TODO SECTION ═══════════════════ -->
+<div class="todo-section">
+  <div class="todo-header">
+    <span style="font-size:1.3rem">📋</span>
+    <h2>Trip To-Do List</h2>
+    <div class="todo-progress-wrap">
+      <div class="todo-progress-bar">
+        <div class="todo-progress-fill" id="todoProgressFill"></div>
+      </div>
+      <div class="todo-progress-label" id="todoProgressLabel">0 / 10 done</div>
+    </div>
+  </div>
+  <div class="todo-list" id="todoList">
+    <div class="todo-item" data-id="0" onclick="toggleTodo(0)">
+      <div class="todo-check" id="todoCheck0">✓</div>
+      <div class="todo-text" id="todoText0">Cancel Emirates flights — get refund</div>
+    </div>
+    <div class="todo-item" data-id="1" onclick="toggleTodo(1)">
+      <div class="todo-check" id="todoCheck1">✓</div>
+      <div class="todo-text" id="todoText1">Book Eurostar — Paris → London (02 Jun)</div>
+    </div>
+    <div class="todo-item" data-id="2" onclick="toggleTodo(2)">
+      <div class="todo-check" id="todoCheck2">✓</div>
+      <div class="todo-text" id="todoText2">Book 1 night hotel in London (02 Jun) — evening walkabout &amp; Spurs stadium next morning</div>
+    </div>
+    <div class="todo-item" data-id="3" onclick="toggleTodo(3)">
+      <div class="todo-check" id="todoCheck3">✓</div>
+      <div class="todo-text" id="todoText3">Book Spurs stadium tour (03 Jun)</div>
+    </div>
+    <div class="todo-item" data-id="4" onclick="toggleTodo(4)">
+      <div class="todo-check" id="todoCheck4">✓</div>
+      <div class="todo-text" id="todoText4">Book San Siro stadium tour — Milan</div>
+    </div>
+    <div class="todo-item" data-id="5" onclick="toggleTodo(5)">
+      <div class="todo-check" id="todoCheck5">✓</div>
+      <div class="todo-text" id="todoText5">Book day trip to Florence from Milan</div>
+    </div>
+    <div class="todo-item" data-id="6" onclick="toggleTodo(6)">
+      <div class="todo-check" id="todoCheck6">✓</div>
+      <div class="todo-text" id="todoText6">Book day trip to Lake Como from Milan</div>
+    </div>
+    <div class="todo-item" data-id="7" onclick="toggleTodo(7)">
+      <div class="todo-check" id="todoCheck7">✓</div>
+      <div class="todo-text" id="todoText7">Book flight — Milan → Paris (29 May)</div>
+    </div>
+    <div class="todo-item" data-id="8" onclick="toggleTodo(8)">
+      <div class="todo-check" id="todoCheck8">✓</div>
+      <div class="todo-text" id="todoText8">Investigate &amp; book tours for Paris</div>
+    </div>
+    <div class="todo-item" data-id="9" onclick="toggleTodo(9)">
+      <div class="todo-check" id="todoCheck9">✓</div>
+      <div class="todo-text" id="todoText9">Book Disneyland Paris tickets — 2 days (31 May &amp; 01 Jun)</div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var TODOS = [
+    { id: 0, label: 'Cancel Emirates flights — get refund' },
+    { id: 1, label: 'Book Eurostar — Paris → London (02 Jun)' },
+    { id: 2, label: 'Book 1 night hotel in London (02 Jun)' },
+    { id: 3, label: 'Book Spurs stadium tour (03 Jun)' },
+    { id: 4, label: 'Book San Siro stadium tour — Milan' },
+    { id: 5, label: 'Book day trip to Florence from Milan' },
+    { id: 6, label: 'Book day trip to Lake Como from Milan' },
+    { id: 7, label: 'Book flight — Milan → Paris (29 May)' },
+    { id: 8, label: 'Investigate & book tours for Paris' },
+    { id: 9, label: 'Book Disneyland Paris tickets — 2 days (31 May & 01 Jun)' }
+  ];
+
+  /* Load state from localStorage */
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem('todoState') || '{}'); } catch(e) {}
+
+  function updateProgress() {
+    var done = TODOS.filter(function(t){ return state[t.id]; }).length;
+    var total = TODOS.length;
+    var pct = total ? Math.round(done / total * 100) : 0;
+    document.getElementById('todoProgressFill').style.width = pct + '%';
+    document.getElementById('todoProgressLabel').textContent = done + ' / ' + total + ' done';
+  }
+
+  function applyState() {
+    TODOS.forEach(function(t) {
+      var item  = document.querySelector('[data-id="'+t.id+'"]');
+      var check = document.getElementById('todoCheck'+t.id);
+      if (!item) return;
+      if (state[t.id]) {
+        item.classList.add('done');
+        check.textContent = '✓';
+      } else {
+        item.classList.remove('done');
+        check.textContent = '';
+      }
+    });
+    updateProgress();
+  }
+
+  window.toggleTodo = function(id) {
+    state[id] = !state[id];
+    try { localStorage.setItem('todoState', JSON.stringify(state)); } catch(e) {}
+    applyState();
+  };
+
+  applyState();
+})();
+</script>
 
 <!-- ═══════════════════ SECTION: MUFC TOUR ═══════════════════ -->
 <div class="section-label sl-mufc">⚽&nbsp; Part 1 — Manly United FC BYL U15 Football Tour &nbsp;·&nbsp; 13–24 May 2026</div>
