@@ -654,7 +654,7 @@
     </div>
     <div class="todo-item" data-id="1" onclick="toggleTodo(1)">
       <div class="todo-check" id="todoCheck1">✓</div>
-      <div class="todo-text" id="todoText1">Book Eurostar — Paris → London (02 Jun)</div>
+      <div class="todo-text" id="todoText1">✅ Eurostar booked — Paris → London (2 Jun 11:09 · Ref: ZCXPGX)</div>
     </div>
     <div class="todo-item" data-id="2" onclick="toggleTodo(2)">
       <div class="todo-check" id="todoCheck2">✓</div>
@@ -678,7 +678,7 @@
     </div>
     <div class="todo-item" data-id="7" onclick="toggleTodo(7)">
       <div class="todo-check" id="todoCheck7">✓</div>
-      <div class="todo-text" id="todoText7">Book flight — Milan → Paris (29 May)</div>
+      <div class="todo-text" id="todoText7">✅ Flight booked — Milan → Paris (EJU4904 · 29 May 19:40)</div>
     </div>
     <div class="todo-item" data-id="8" onclick="toggleTodo(8)">
       <div class="todo-check" id="todoCheck8">✓</div>
@@ -695,13 +695,13 @@
 (function(){
   var TODOS = [
     { id: 0, label: 'Cancel Emirates flights — get refund' },
-    { id: 1, label: 'Book Eurostar — Paris → London (02 Jun)' },
+    { id: 1, label: '✅ Eurostar booked — Paris → London (2 Jun 11:09 · Ref: ZCXPGX)' },
     { id: 2, label: 'Book 1 night hotel in London (02 Jun)' },
     { id: 3, label: 'Book Spurs stadium tour (03 Jun)' },
     { id: 4, label: 'Book San Siro stadium tour — Milan' },
     { id: 5, label: 'Book day trip to Florence from Milan' },
     { id: 6, label: 'Book day trip to Lake Como from Milan' },
-    { id: 7, label: 'Book flight — Milan → Paris (29 May)' },
+    { id: 7, label: '✅ Flight booked — Milan → Paris (EJU4904 · 29 May 19:40)' },
     { id: 8, label: 'Investigate & book tours for Paris' },
     { id: 9, label: 'Book Disneyland Paris tickets — 2 days (31 May & 01 Jun)' }
   ];
@@ -753,7 +753,7 @@
     <!-- SYDNEY depart -->
     <div class="endpoint">
       <div class="endpoint-dot"></div>
-      <div class="endpoint-label">✈️ Depart<br>Sydney<br><strong>13 May</strong></div>
+      <div class="endpoint-label">✈️ Depart<br>Sydney<br><strong>13 May 15:00</strong><br><span style="font-size:0.55rem;opacity:0.75;">🅿️ P7 Parking · Ref: 14772143-1<br>Arrive by 12:00 · Plate: FNC77W<br>Return exit by 7 Jun 20:00</span></div>
     </div>
 
     <!-- FLIGHT SYD→MUC: Singapore Airlines SQ222 + SQ328 -->
@@ -1033,7 +1033,7 @@
     </div>
 
     <!-- MILAN — 4 NIGHTS -->
-    <div class="stop italy" style="width:310px">
+    <div class="stop italy" style="width:340px">
       <div>
         <div class="stop-city">Milan</div>
         <div class="stop-country">🇮🇹 Lombardy — Single Base</div>
@@ -1042,6 +1042,12 @@
           <strong>City Day 1:</strong> San Siro tour · Navigli canals &amp; aperitivo<br>
           <strong>City Day 2:</strong> Duomo rooftop · The Last Supper (pre-book) · Brera<br>
           <strong>Day Trip:</strong> Lake Como · Varenna, Bellagio &amp; Villa del Balbianello
+        </div>
+        <div class="stop-detail" style="margin-top:6px;font-size:0.63rem;">
+          🏨 <strong>Residenza Porta Volta</strong> · Via Carlo Farini 5, 20154<br>
+          2-Bedroom Apartment · 4 nights · Ref: 6377428754<br>
+          Check-in 25 May (14:00–20:00) · Check-out 29 May (by 11:00)<br>
+          📍 Stazione Garibaldi – Porta Nuova · Free WiFi · ⚠️ No parking
         </div>
         <div class="stop-daytrips">
           <div class="daytrip">⛴️ Day Trip — Lake Como &nbsp;·&nbsp; 1 hr by train · Bellagio, Varenna, Villa del Balbianello</div>
@@ -1157,7 +1163,7 @@
         <div class="day-activity"><span class="day-activity-icon">🌅</span><span>Morning at leisure — final Milanese coffee</span></div>
         <div class="day-activity"><span class="day-activity-icon">🏨</span><span>Check out of Residenza Porta Volta</span></div>
         <div class="day-activity"><span class="day-activity-icon">☕</span><span>Last Italian espresso — standing at the bar, the proper way</span></div>
-        <div class="day-activity"><span class="day-activity-icon">✈️</span><span>Evening flight Milan → Paris</span></div>
+        <div class="day-activity"><span class="day-activity-icon">✈️</span><span>EJU 4904 departs MXP 19:40 → Paris Orly 21:15</span></div>
         <div class="day-activity"><span class="day-activity-icon">🗼</span><span>Arrive Paris — check in &amp; settle</span></div>
       </div>
     </div>
@@ -1173,29 +1179,37 @@
 
     <div style="padding-left:20px"></div>
 
-    <!-- FLIGHT MILAN→PARIS -->
-    <div class="transport">
+    <!-- FLIGHT MILAN→PARIS: easyJet EJU4904 -->
+    <div class="transport" style="min-width:180px">
       <div class="transport-icon">✈️</div>
       <div class="transport-line"></div>
-      <div class="transport-mode">Flight</div>
-      <div class="transport-time">~1.5 hrs · morn.</div>
+      <div class="transport-mode">EJU 4904 · easyJet · Economy</div>
+      <div class="transport-time">MXP 19:40 → ORY 21:15</div>
+      <div class="transport-detail">Luke: 11A · Matt: 11B · Jo: 11C</div>
+      <div class="transport-connection">📋 Ref: KCHD38M · Bag drop closes 18:40</div>
     </div>
 
     <!-- PARIS: SIGHTSEEING -->
-    <div class="stop france" style="width:170px">
+    <div class="stop france" style="width:210px">
       <div>
         <div class="stop-city">Paris</div>
         <div class="stop-country">🇫🇷 Île-de-France</div>
         <div class="stop-dates">29 May (eve) – 2 Jun (morn)</div>
         <div class="stop-detail">Arrive evening from Milan. Full sightseeing day 30th — Eiffel Tower, Notre-Dame (restored!), Montmartre at sunset. Two days at Disneyland.</div>
+        <div class="stop-detail" style="margin-top:6px;font-size:0.63rem;">
+          🏨 <strong>Hôtel Ascot Opéra</strong> · 2 Rue Monsigny, 75002<br>
+          Triple/Family Room · 4 nights · Ref: KB2NA7<br>
+          Check-in 29 May (from 14:00) · Check-out 2 Jun (by 12:00)<br>
+          📍 5 min walk from Gare St-Lazare · Near Orly: RER B → line 3
+        </div>
         <div class="stop-weather">
           <div class="sw-temp">🌡️ 19–23°C · Mild, mixed sunshine &amp; cloud</div>
           <div class="sw-kit">👕 Light layers · 🧥 Cardigan or light jacket · 🌂 Umbrella — Paris showers are very real</div>
         </div>
       </div>
       <div>
-        <div class="stop-nights">1 <span>night (sightseeing)</span></div>
-        <div class="pace-badge pace-quick">Sightseeing Day</div>
+        <div class="stop-nights">4 <span>nights</span></div>
+        <div class="pace-badge pace-quick">Sightseeing</div>
       </div>
     </div>
 
@@ -1238,11 +1252,13 @@
     <div style="padding-left:20px"></div>
 
     <!-- EUROSTAR -->
-    <div class="transport">
+    <div class="transport" style="min-width:180px">
       <div class="transport-icon">🚂</div>
       <div class="transport-line"></div>
-      <div class="transport-mode">Eurostar</div>
-      <div class="transport-time">~2h 15m · midday</div>
+      <div class="transport-mode">Eurostar Standard · Direct</div>
+      <div class="transport-time">CDG 11:09 → St Pancras 12:30</div>
+      <div class="transport-detail">Matt: C7 Seat 24 · Jo: C7 Seat 23 · Luke: C7 Seat 27</div>
+      <div class="transport-connection">📋 Ref: ZCXPGX · 2h 21m · ⚠️ Complete API before travel</div>
     </div>
 
     <!-- LONDON -->
