@@ -45,6 +45,142 @@
   .sl-italy-alt { background: #b45309; }
   .sl-france    { background: #1565C0; }
   .sl-uk        { background: #8B1A1A; }
+  .sl-jo        { background: #6a1f7a; }
+
+  /* ── GROUP DRAW CARD ── */
+  .group-card {
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.13);
+    overflow: hidden;
+    min-width: 210px;
+    width: 210px;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+  }
+  .group-card-header {
+    background: linear-gradient(135deg, #1a6e2e, #145223);
+    color: white;
+    padding: 10px 14px 8px;
+    text-align: center;
+  }
+  .group-card-tournament {
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.8;
+  }
+  .group-card-title {
+    font-size: 1.6rem;
+    font-weight: 900;
+    line-height: 1;
+    margin: 2px 0 1px;
+    letter-spacing: 1px;
+  }
+  .group-card-venue {
+    font-size: 0.6rem;
+    opacity: 0.85;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .group-card-teams {
+    padding: 8px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+  }
+  .group-team {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 8px;
+    border-radius: 7px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: #222;
+    background: #f5f5f5;
+  }
+  .group-team.our-team {
+    background: linear-gradient(135deg, #1B4F8A, #14396e);
+    color: white;
+    font-weight: 800;
+  }
+  .group-team-flag { font-size: 0.9rem; flex-shrink: 0; }
+  .group-team-name { flex: 1; line-height: 1.2; }
+  .group-card-footer {
+    padding: 6px 12px 9px;
+    font-size: 0.57rem;
+    color: #888;
+    text-align: center;
+    font-style: italic;
+    border-top: 1px solid #eee;
+  }
+
+  /* ── ROUTE MAP CARD ── */
+  .route-map-card {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.13);
+    overflow: hidden;
+    min-width: 220px;
+    width: 220px;
+    align-self: stretch;
+  }
+  .route-map-title {
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    background: linear-gradient(135deg, #1B4F8A, #14396e);
+    padding: 9px 12px;
+    text-align: center;
+  }
+  .route-map-wrap {
+    position: relative;
+    overflow: hidden;
+    background: #dce8f5;
+    line-height: 0;
+  }
+  .route-legend {
+    padding: 8px 12px 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .route-leg {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.6rem;
+    color: #333;
+  }
+  .route-dot {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    border: 1.5px solid rgba(0,0,0,0.15);
+  }
+  .route-stop-name { font-weight: 700; flex: 1; }
+  .route-stop-time { color: #777; font-size: 0.58rem; font-weight: 600; }
+  .route-leg-line {
+    width: 1.5px;
+    height: 8px;
+    background: #ddd;
+    margin-left: 4px;
+  }
+  .route-map-sub {
+    font-size: 0.57rem;
+    color: #888;
+    text-align: center;
+    padding: 4px 8px 8px;
+    font-style: italic;
+  }
 
   /* ── MILAN DAY-BY-DAY ── */
   .day-section {
@@ -478,13 +614,13 @@
 <div class="hero">
   <div style="font-size:0.8rem;opacity:0.6;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px">Full Journey Guide</div>
   <h1>MILLIGAN FAMILY</h1>
-  <div class="subtitle">Europe Tour 2026 &nbsp;·&nbsp; 13 May – 6 June</div>
+  <div class="subtitle">Europe Tour 2026 &nbsp;·&nbsp; 13 May – 7 June</div>
   <div class="hero-stats">
-    <div class="hero-stat"><div class="num">25</div><div class="lbl">Days Away</div></div>
+    <div class="hero-stat"><div class="num">26</div><div class="lbl">Days Away</div></div>
     <div class="hero-stat"><div class="num">8</div><div class="lbl">Destinations</div></div>
     <div class="hero-stat"><div class="num">5</div><div class="lbl">Countries</div></div>
     <div class="hero-stat"><div class="num">7</div><div class="lbl">Travel Legs</div></div>
-    <div class="hero-stat"><div class="num">24</div><div class="lbl">Nights Away</div></div>
+    <div class="hero-stat"><div class="num">25</div><div class="lbl">Nights Away</div></div>
   </div>
 </div>
 
@@ -620,12 +756,20 @@
       <div class="endpoint-label">✈️ Depart<br>Sydney<br><strong>13 May</strong></div>
     </div>
 
-    <!-- FLIGHT SYD→MUC -->
-    <div class="transport">
+    <!-- FLIGHT SYD→MUC: Singapore Airlines SQ222 + SQ328 -->
+    <div class="transport" style="min-width:190px">
       <div class="transport-icon">✈️</div>
       <div class="transport-line"></div>
-      <div class="transport-mode">Emirates</div>
-      <div class="transport-time">~25 hrs</div>
+      <div class="transport-mode">SQ 222 · A380 · Economy</div>
+      <div class="transport-time">SYD 15:00 → SIN 21:20</div>
+      <div class="transport-detail">Jo: 48A · Matt: 48C · Luke: 48B · 30 kg bags</div>
+      <div class="transport-connection">🛑 Singapore Changi · 2h 45m layover</div>
+      <div class="transport-icon">✈️</div>
+      <div class="transport-line"></div>
+      <div class="transport-mode">SQ 328 · A350 · Economy</div>
+      <div class="transport-time">SIN 00:05 → MUC 06:45</div>
+      <div class="transport-detail">Jo: 44A · Matt: 44C · Luke: 44B · 30 kg bags</div>
+      <div class="transport-connection">📋 Ref: FJMF3Q · Singapore Airlines</div>
     </div>
 
     <!-- MUNICH -->
@@ -698,6 +842,39 @@
       </div>
     </div>
 
+    <!-- CORDIAL CUP GROUP E DRAW -->
+    <div style="padding-left:12px"></div>
+    <div class="group-card">
+      <div class="group-card-header">
+        <div class="group-card-tournament">⚽ Cordial Cup Tirol 2026 · U15</div>
+        <div class="group-card-title">Group E</div>
+        <div class="group-card-venue">📍 Ellmau · 22–24 May</div>
+      </div>
+      <div class="group-card-teams">
+        <div class="group-team">
+          <span class="group-team-flag">🇩🇪</span>
+          <span class="group-team-name">FC Augsburg</span>
+        </div>
+        <div class="group-team">
+          <span class="group-team-flag">🇩🇪</span>
+          <span class="group-team-name">SpVgg Unterhaching</span>
+        </div>
+        <div class="group-team our-team">
+          <span class="group-team-flag">🇦🇺</span>
+          <span class="group-team-name">Manly United FC ⭐</span>
+        </div>
+        <div class="group-team">
+          <span class="group-team-flag">🇩🇪</span>
+          <span class="group-team-name">SG Sonnenhof Großaspach</span>
+        </div>
+        <div class="group-team">
+          <span class="group-team-flag">🇩🇪</span>
+          <span class="group-team-name">FV Ravensburg</span>
+        </div>
+      </div>
+      <div class="group-card-footer">Finals at Hopfgarten · 25 May</div>
+    </div>
+
     <!-- Phase break -->
     <div class="phase-break">
       <div class="phase-break-line"></div>
@@ -715,6 +892,129 @@
   <div class="timeline">
 
     <div style="padding-left:20px"></div>
+
+    <!-- ROUTE MAP: WÖRGL → MILAN -->
+    <div class="route-map-card">
+      <div class="route-map-title">🗺️ Wörgl → Milan — Train Route</div>
+      <div class="route-map-wrap">
+        <!-- Self-contained SVG map: bbox lon 8.8–12.4, lat 45.2–47.6 -->
+        <!-- x=(lon-8.8)/3.6*220  y=(47.6-lat)/2.4*180 -->
+        <!-- Stops: Wörgl(199,8) Innsbruck(159,25) Brenner(166,46) Verona(134,162) Milan(24,161) -->
+        <svg viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
+          <defs>
+            <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#dce8f5"/>
+              <stop offset="100%" stop-color="#c8dff0"/>
+            </linearGradient>
+            <linearGradient id="alpineGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#b8ccb0"/>
+              <stop offset="100%" stop-color="#9ab490"/>
+            </linearGradient>
+            <linearGradient id="poPlainGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#cde6b8"/>
+              <stop offset="100%" stop-color="#b8d8a0"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Sky background (Austria / top) -->
+          <rect width="220" height="180" fill="url(#skyGrad)"/>
+
+          <!-- Po Plain — southern Italy lowlands -->
+          <polygon points="0,120 220,120 220,180 0,180" fill="url(#poPlainGrad)"/>
+
+          <!-- Alpine band -->
+          <polygon points="0,50 220,50 220,125 0,125" fill="url(#alpineGrad)"/>
+
+          <!-- Mountain silhouette — spans full width, peaks cluster around Brenner area (right side) -->
+          <polygon points="0,85 20,68 40,78 60,60 80,72 100,55 120,65 140,50 160,62 176,48 192,58 210,52 220,56 220,88 0,88"
+                   fill="#7a9870" opacity="0.75"/>
+          <polygon points="0,95 24,80 44,88 64,74 84,82 104,68 124,76 144,63 162,72 178,60 196,70 212,64 220,68 220,95 0,95"
+                   fill="#6a8860" opacity="0.6"/>
+          <!-- Snow caps near Brenner/Innsbruck (right side of map) -->
+          <polygon points="140,50 148,57 132,57" fill="white" opacity="0.9"/>
+          <polygon points="160,62 167,68 153,68" fill="white" opacity="0.85"/>
+          <polygon points="176,48 183,56 169,56" fill="white" opacity="0.9"/>
+
+          <!-- Country border: Austria / Italy (approx lat 46.6 → y=37) -->
+          <line x1="0" y1="75" x2="220" y2="75" stroke="#999" stroke-width="0.8" stroke-dasharray="5,3" opacity="0.6"/>
+
+          <!-- Country labels -->
+          <text x="6"   y="42"  font-size="6" fill="#445" font-family="Arial,sans-serif" font-weight="700" opacity="0.8">🇦🇹 AUSTRIA</text>
+          <text x="6"   y="155" font-size="6" fill="#445" font-family="Arial,sans-serif" font-weight="700" opacity="0.8">🇮🇹 ITALY</text>
+
+          <!-- Adige river hint (flows south from Brenner toward Verona) -->
+          <path d="M 166,46 Q 158,90 148,130 Q 140,150 134,162" stroke="#7ab8e0" stroke-width="1.5" fill="none" opacity="0.55"/>
+
+          <!-- Brenner label -->
+          <text x="118" y="44" font-size="5.2" fill="#333" font-family="Arial,sans-serif" font-weight="600">Brenner</text>
+          <text x="118" y="50" font-size="4.5" fill="#555" font-family="Arial,sans-serif">1,371 m</text>
+
+          <!-- === TRAIN ROUTE === -->
+          <polyline
+            points="199,8 159,25 166,46 134,162 24,161"
+            fill="none" stroke="#e53935" stroke-width="3"
+            stroke-dasharray="6,4" stroke-linecap="round" stroke-linejoin="round"/>
+
+          <!-- Stop: Wörgl (x=199, y=8) — label to the left -->
+          <circle cx="199" cy="8" r="5.5" fill="#1B4F8A" stroke="white" stroke-width="2"/>
+          <text x="136" y="8"  font-size="6.5" fill="#1B4F8A" font-family="Arial,sans-serif" font-weight="800">Wörgl</text>
+          <text x="136" y="15" font-size="5.5" fill="#444"   font-family="Arial,sans-serif">08:46 dep</text>
+
+          <!-- Stop: Innsbruck (x=159, y=25) — label to the left -->
+          <circle cx="159" cy="25" r="4" fill="#f9a825" stroke="white" stroke-width="1.5"/>
+          <text x="100" y="24" font-size="5.8" fill="#7a5c00" font-family="Arial,sans-serif" font-weight="700">Innsbruck</text>
+
+          <!-- Stop: Brenner (x=166, y=46) — dot only, label already above -->
+          <circle cx="166" cy="46" r="3.5" fill="#f9a825" stroke="white" stroke-width="1.5"/>
+
+          <!-- Stop: Verona (x=134, y=162) — label above-left -->
+          <circle cx="134" cy="162" r="5.5" fill="#f9a825" stroke="white" stroke-width="2"/>
+          <text x="138" y="158" font-size="6"   fill="#7a5c00" font-family="Arial,sans-serif" font-weight="800">Verona</text>
+          <text x="138" y="165" font-size="5.2" fill="#555"   font-family="Arial,sans-serif">12:59 · change</text>
+
+          <!-- Stop: Milan (x=24, y=161) — label to the right -->
+          <circle cx="24" cy="161" r="5.5" fill="#2E7D32" stroke="white" stroke-width="2"/>
+          <text x="32" y="159" font-size="6.5" fill="#2E7D32" font-family="Arial,sans-serif" font-weight="800">Milan</text>
+          <text x="32" y="166" font-size="5.5" fill="#444"   font-family="Arial,sans-serif">15:15 arr</text>
+
+          <!-- Frame -->
+          <rect width="220" height="180" fill="none" stroke="#bbb" stroke-width="1"/>
+        </svg>
+      </div>
+      <!-- Route legend -->
+      <div class="route-legend">
+        <div class="route-leg">
+          <span class="route-dot" style="background:#1B4F8A"></span>
+          <span class="route-stop-name">Wörgl</span>
+          <span class="route-stop-time">08:46</span>
+        </div>
+        <div class="route-leg-line"></div>
+        <div class="route-leg">
+          <span class="route-dot" style="background:#f9a825"></span>
+          <span class="route-stop-name">Innsbruck</span>
+          <span class="route-stop-time">↓</span>
+        </div>
+        <div class="route-leg-line"></div>
+        <div class="route-leg">
+          <span class="route-dot" style="background:#f9a825"></span>
+          <span class="route-stop-name">Brenner Pass</span>
+          <span class="route-stop-time">↓</span>
+        </div>
+        <div class="route-leg-line"></div>
+        <div class="route-leg">
+          <span class="route-dot" style="background:#f9a825"></span>
+          <span class="route-stop-name">Verona</span>
+          <span class="route-stop-time">12:59</span>
+        </div>
+        <div class="route-leg-line"></div>
+        <div class="route-leg">
+          <span class="route-dot" style="background:#2E7D32"></span>
+          <span class="route-stop-name">Milan</span>
+          <span class="route-stop-time">15:15</span>
+        </div>
+      </div>
+      <div class="route-map-sub">EC 81 + FR 9732 Frecciarossa · 6h 29m total</div>
+    </div>
 
     <!-- TRAINS AUSTRIA→MILAN: EC81 + FR9732 -->
     <div class="transport" style="min-width:175px">
@@ -997,10 +1297,82 @@
       <div class="transport-time">~1 hr</div>
     </div>
 
-    <!-- GATWICK FLY HOME -->
+    <!-- FLIGHT LGW→SYD: SQ309 + SQ211 (Matt & Luke) -->
+    <div class="transport" style="min-width:195px">
+      <div class="transport-icon">✈️</div>
+      <div class="transport-line"></div>
+      <div class="transport-mode">SQ 309 · A350 · Economy</div>
+      <div class="transport-time">LGW 10:05 → SIN 06:25+1</div>
+      <div class="transport-detail">Matt: 44D · Luke: 44E · 30 kg bags</div>
+      <div class="transport-connection">🛑 Singapore Changi · 3h 10m layover</div>
+      <div class="transport-icon">✈️</div>
+      <div class="transport-line"></div>
+      <div class="transport-mode">SQ 211 · 777-300ER · Economy</div>
+      <div class="transport-time">SIN 09:35 → SYD 19:15</div>
+      <div class="transport-detail">Matt: 44G · Luke: TBC · 30 kg bags</div>
+      <div class="transport-connection">📋 Ref: FJMF3Q · Jo departs 12 Jun (Ref: FJS6DN)</div>
+    </div>
+
+    <!-- SYDNEY ARRIVE -->
     <div class="endpoint">
-      <div class="endpoint-dot" style="border-color:#8B1A1A"></div>
-      <div class="endpoint-label">✈️ Fly Home<br>Gatwick<br><strong>6 Jun 14:35</strong></div>
+      <div class="endpoint-dot" style="border-color:#1B4F8A"></div>
+      <div class="endpoint-label">🏠 Home!<br>Sydney<br><strong>7 Jun 19:15</strong></div>
+    </div>
+
+    <div style="padding-right:20px"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ SECTION: JO — EXTENDED UK ═══════════════════ -->
+<div class="section-label sl-jo">👩&nbsp; Jo — Extended UK Stay &nbsp;·&nbsp; 6–13 June &nbsp;·&nbsp; Departs Gatwick 12 June</div>
+
+<div class="timeline-outer">
+  <div class="timeline">
+
+    <div style="padding-left:20px"></div>
+
+    <!-- JO STAYS IN KENT/UK -->
+    <div class="stop" style="width:280px; background: linear-gradient(160deg,#6a1f7a,#4a1358); color:white;">
+      <div>
+        <div class="stop-city">UK — Extended</div>
+        <div class="stop-country">🇬🇧 Jo's Extra Week</div>
+        <div class="stop-dates">6 – 12 Jun</div>
+        <div class="stop-detail">Jo stays on in the UK for an extra week after Matt &amp; Luke fly home. Family time in Kent continues — Canterbury, White Cliffs, countryside, and whatever else takes her fancy.</div>
+      </div>
+      <div>
+        <div class="stop-nights">6 <span>nights extra</span></div>
+        <div class="pace-badge pace-relaxed">Relaxed</div>
+      </div>
+    </div>
+
+    <!-- CAR KENT→GATWICK (Jo) -->
+    <div class="transport">
+      <div class="transport-icon">🚗</div>
+      <div class="transport-line"></div>
+      <div class="transport-mode">Car / Train</div>
+      <div class="transport-time">~1 hr</div>
+    </div>
+
+    <!-- FLIGHT LGW→SYD: SQ309 + SQ211 (Jo) -->
+    <div class="transport" style="min-width:195px">
+      <div class="transport-icon">✈️</div>
+      <div class="transport-line"></div>
+      <div class="transport-mode">SQ 309 · A350 · Economy</div>
+      <div class="transport-time">LGW 10:10 → SIN 06:25+1</div>
+      <div class="transport-detail">Jo: 57G · 30 kg bags</div>
+      <div class="transport-connection">🛑 Singapore Changi · 3h 10m layover</div>
+      <div class="transport-icon">✈️</div>
+      <div class="transport-line"></div>
+      <div class="transport-mode">SQ 211 · 777-300ER · Economy</div>
+      <div class="transport-time">SIN 09:35 → SYD 19:15</div>
+      <div class="transport-detail">Jo: 45G · 30 kg bags</div>
+      <div class="transport-connection">📋 Ref: FJS6DN · Singapore Airlines</div>
+    </div>
+
+    <!-- JO HOME -->
+    <div class="endpoint">
+      <div class="endpoint-dot" style="border-color:#6a1f7a"></div>
+      <div class="endpoint-label">🏠 Jo Home!<br>Sydney<br><strong>13 Jun 19:15</strong></div>
     </div>
 
     <div style="padding-right:20px"></div>
@@ -1559,9 +1931,9 @@
           '<div><div class="rc-stat-num">25</div><div class="rc-stat-lbl">Days Away</div></div>' +
           '<div><div class="rc-stat-num">8</div><div class="rc-stat-lbl">Destinations</div></div>' +
           '<div><div class="rc-stat-num">5</div><div class="rc-stat-lbl">Countries</div></div>' +
-          '<div><div class="rc-stat-num">2</div><div class="rc-stat-lbl">Adventurers</div></div>' +
+          '<div><div class="rc-stat-num">3</div><div class="rc-stat-lbl">Adventurers</div></div>' +
         '</div>' +
-        '<div class="rc-dates" style="font-size:clamp(0.62rem,1.7vw,0.95rem);margin-top:0.6em;opacity:0.7">13 May – 6 June 2026 &nbsp;·&nbsp; Sydney to Gatwick</div>';
+        '<div class="rc-dates" style="font-size:clamp(0.62rem,1.7vw,0.95rem);margin-top:0.6em;opacity:0.7">13 May – 7 June 2026 &nbsp;·&nbsp; Sydney → Munich → Sydney</div>';
 
     } else if (s.type === 'transition') {
       c.innerHTML =
@@ -1588,7 +1960,7 @@
         '</div>' +
         '<div class="rc-divider" style="margin-top:0.8em"></div>' +
         '<div style="font-size:clamp(1rem,3.5vw,2.8rem);font-weight:900;color:#f0a040;letter-spacing:2px;margin-top:0.5em;text-shadow:0 2px 14px rgba(0,0,0,0.6)">THE ADVENTURE AWAITS</div>' +
-        '<div class="rc-dates" style="margin-top:0.35em;font-size:clamp(0.55rem,1.3vw,0.76rem)">3 – 5 June &nbsp;·&nbsp; Fly home from Gatwick 6 June 14:35 &nbsp;·&nbsp; Sydney 7 June</div>';
+        '<div class="rc-dates" style="margin-top:0.35em;font-size:clamp(0.55rem,1.3vw,0.76rem)">3 – 5 June &nbsp;·&nbsp; Fly home from Gatwick 6 June 10:05 &nbsp;·&nbsp; Sydney 7 June</div>';
 
     } else {
       /* Standard destination slide — photo-card strip replaces text bullets */
